@@ -25,6 +25,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         public TextView nomTxt;
+        public TextView idTxt;
         public View layout;
 
         public ViewHolder(View vu)
@@ -32,6 +33,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
             super(vu);
             layout = vu;
             nomTxt = (TextView) vu.findViewById(R.id.cell_txt_weapons_name);
+            idTxt = (TextView) vu.findViewById(R.id.cell_txt_weapons_id);
+
         }
     }
 
@@ -63,7 +66,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     {
         final Weapons weaponActuel = weapon.get(position);
         final String name=weaponActuel.getName();
+        final String id=weaponActuel.get_id();
         holder.nomTxt.setText(name);
+        holder.idTxt.setText(id);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

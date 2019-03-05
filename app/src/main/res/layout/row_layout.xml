@@ -7,13 +7,33 @@
     android:padding="6dip"
     android:id="@+id/parent">
 
-    <TextView
-        android:id="@+id/cell_txt_weapons_name"
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <TextView
+            android:id="@+id/cell_txt_weapons_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:textColor="@color/RowColor"
+            tools:text="Description" />
+
+
+
+    <TextView
+        android:id="@+id/cell_txt_weapons_id"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:text="Description"
-        android:textSize="12sp"
-        android:singleLine="true"/>
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:textSize="12dp"
+        android:textColor="@color/RowColor"
+        android:text="TextView" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
