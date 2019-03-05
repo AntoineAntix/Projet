@@ -55,7 +55,8 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
             intent.putExtra("nom", arme.getName());
             intent.putExtra("description", arme.getDescription());
-            getApplicationContext().startActivity(intent);
+            intent.putExtra("lvl", arme.getLvl());
+            MainActivity.this.startActivity(intent);
         }
     }
     );

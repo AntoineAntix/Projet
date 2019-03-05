@@ -20,16 +20,20 @@ public class DetailsActivity extends AppCompatActivity {
         {
             String nomS = getIntent().getStringExtra("nom");
             String descriptionS = getIntent().getStringExtra("description");
-            setTxt(nomS,descriptionS);
+            String lvlS = getIntent().getStringExtra("lvl");
+            setTxt(nomS,descriptionS,lvlS);
         }
     }
 
-    private void setTxt(String nom, String description)
+    private void setTxt(String nom, String description, String lvl)
     {
         TextView nomTv = findViewById(R.id.nom);
         nomTv.setText(nom);
 
         TextView descriptionTv = findViewById(R.id.description);
         descriptionTv.setText(description);
+
+        TextView lvlTv = findViewById(R.id.lvl);
+        lvlTv.setText(lvl);
     }
 }
