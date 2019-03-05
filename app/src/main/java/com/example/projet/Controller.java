@@ -29,7 +29,7 @@ public class Controller {
     {
         this.mainActivity=mainActivity;
     }
-    public void creation()
+    public void onCreate()
     {
         mainActivity.showLoader();
         Gson gson = new GsonBuilder()

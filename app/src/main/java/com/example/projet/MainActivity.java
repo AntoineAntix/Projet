@@ -1,11 +1,13 @@
 package com.example.projet;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class MainActivity extends Activity {
         chargement = findViewById(R.id.chargement_main_activity);
 
         crt = new Controller(this);
-        crt.creation();
+        crt.onCreate();
     }
 
 
@@ -45,7 +47,18 @@ public class MainActivity extends Activity {
     layoutManager=new LinearLayoutManager(this);
     recyclerView.setLayoutManager(layoutManager);
 
-    adapter = new Adapter(listWeapons);
+    adapter = new Adapter(listWeapons, new OnItemClick() {
+        @Override
+        public void onItemClick(Weapons arme) {
+            Toast.makeText(getApplicationContext(), arme.getName(), Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+            intent.putExtra("nom", arme.getName());
+            intent.putExtra("description", arme.getDescription());
+            getApplicationContext().startActivity(intent);
+        }
+    }
+    );
     recyclerView.setAdapter(adapter);
 
     }

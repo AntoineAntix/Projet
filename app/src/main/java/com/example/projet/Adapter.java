@@ -8,9 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.projet.OnItemClick;
+
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 {
+    private final OnItemClick click;
     private List<Weapons> weapon;
+
+
+    public Adapter(List<Weapons> dataBase, OnItemClick click)
+    {
+        weapon=dataBase;
+        this.click=click;
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
@@ -37,10 +47,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         notifyItemRemoved(position);
     }
 
-    public Adapter(List<Weapons> dataBase)
-    {
-        weapon=dataBase;
-    }
+
 
     @Override
     public Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -57,6 +64,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         final Weapons weaponActuel = weapon.get(position);
         final String name=weaponActuel.getName();
         holder.nomTxt.setText(name);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                click.onItemClick(weaponActuel);
+            }
+        });
     }
 
     @Override
