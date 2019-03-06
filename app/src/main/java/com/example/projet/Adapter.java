@@ -2,13 +2,16 @@ package com.example.projet;
 
 import java.util.List;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.projet.OnItemClick;
+import com.squareup.picasso.Picasso;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 {
@@ -34,7 +37,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
             layout = vu;
             nomTxt = (TextView) vu.findViewById(R.id.cell_txt_weapons_name);
             idTxt = (TextView) vu.findViewById(R.id.cell_txt_weapons_id);
-
         }
     }
 
@@ -67,6 +69,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         final Weapons weaponActuel = weapon.get(position);
         final String name=weaponActuel.getName();
         final String id=weaponActuel.get_id();
+
         holder.nomTxt.setText(name);
         holder.idTxt.setText(id);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

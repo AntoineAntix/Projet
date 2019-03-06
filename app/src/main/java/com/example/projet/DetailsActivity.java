@@ -21,11 +21,12 @@ public class DetailsActivity extends AppCompatActivity {
             String nomS = getIntent().getStringExtra("nom");
             String descriptionS = getIntent().getStringExtra("description");
             String lvlS = getIntent().getStringExtra("lvl");
-            setTxt(nomS,descriptionS,lvlS);
+            String typeS = getIntent().getStringExtra("type");
+            setTxt(nomS,descriptionS,lvlS,typeS);
         }
     }
 
-    private void setTxt(String nom, String description, String lvl)
+    private void setTxt(String nom, String description, String lvl, String type)
     {
         TextView nomTv = findViewById(R.id.nom);
         nomTv.setText(nom);
@@ -35,5 +36,8 @@ public class DetailsActivity extends AppCompatActivity {
 
         TextView lvlTv = findViewById(R.id.lvl);
         lvlTv.setText(lvl);
+
+        TextView typeTv = findViewById(R.id.type);
+        typeTv.setText(type);
     }
 }

@@ -48,6 +48,9 @@ dependencies {
 
     //circleimageview
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.0'
     
     
 

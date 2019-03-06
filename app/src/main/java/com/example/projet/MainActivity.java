@@ -1,6 +1,7 @@
 package com.example.projet;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -56,6 +57,7 @@ public class MainActivity extends Activity {
             intent.putExtra("nom", arme.getName());
             intent.putExtra("description", arme.getDescription());
             intent.putExtra("lvl", arme.getLvl());
+            intent.putExtra("type", arme.getType());
             MainActivity.this.startActivity(intent);
         }
     }
