@@ -17,12 +17,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 {
     private final OnItemClick click;
     private List<Weapons> weapon;
+    private Context context;
 
 
-    public Adapter(List<Weapons> dataBase, OnItemClick click)
+    public Adapter(List<Weapons> dataBase, Context context, OnItemClick click)
     {
         weapon=dataBase;
         this.click=click;
+        this.context=context;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -30,6 +32,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         public TextView nomTxt;
         public TextView idTxt;
         public View layout;
+        public ImageView imageVw;
 
         public ViewHolder(View vu)
         {
@@ -37,6 +40,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
             layout = vu;
             nomTxt = (TextView) vu.findViewById(R.id.cell_txt_weapons_name);
             idTxt = (TextView) vu.findViewById(R.id.cell_txt_weapons_id);
+            imageVw = (ImageView) vu.findViewById(R.id.cell_txt_weapons_image);
         }
     }
 
@@ -72,6 +76,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 
         holder.nomTxt.setText(name);
         holder.idTxt.setText(id);
+
+        Picasso.with(context)
+                .load(weaponActuel.getImgUrl())
+                .into(holder.imageVw);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

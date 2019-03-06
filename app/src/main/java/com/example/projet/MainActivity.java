@@ -47,8 +47,7 @@ public class MainActivity extends Activity {
     recyclerView.setHasFixedSize(true);
     layoutManager=new LinearLayoutManager(this);
     recyclerView.setLayoutManager(layoutManager);
-
-    adapter = new Adapter(listWeapons, new OnItemClick() {
+    adapter = new Adapter(listWeapons, getApplicationContext(), new OnItemClick() {
         @Override
         public void onItemClick(Weapons arme) {
             Toast.makeText(getApplicationContext(), arme.getName(), Toast.LENGTH_SHORT).show();

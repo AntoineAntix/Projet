@@ -15,24 +15,37 @@
             android:id="@+id/cell_txt_weapons_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/cell_txt_weapons_image"
+            android:layout_toRightOf="@+id/cell_txt_weapons_image"
             android:gravity="center"
             android:singleLine="true"
-            android:textStyle="bold"
             android:textColor="@color/RowColor"
+            android:textStyle="bold"
             tools:text="WeaponName" />
-
 
 
         <TextView
             android:id="@+id/cell_txt_weapons_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="25dp"
-            android:textSize="12dp"
+            android:layout_below="@+id/cell_txt_weapons_name"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@+id/cell_txt_weapons_image"
+            android:layout_toRightOf="@+id/cell_txt_weapons_image"
+            android:text="WeaponID"
             android:textColor="@color/RowColor"
-            android:text="WeaponID" />
+            android:textSize="12dp" />
+
+        <ImageView
+            android:id="@+id/cell_txt_weapons_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
     </RelativeLayout>

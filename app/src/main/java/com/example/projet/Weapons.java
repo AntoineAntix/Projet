@@ -42,11 +42,11 @@ public class Weapons {
         this.type = type;
     }
 
-    public String getImageUrl() {
+    public String getImgUrl() {
         return imgUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImgUrl(String imageUrl) {
         this.imgUrl = imageUrl;
     }
 
