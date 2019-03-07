@@ -3,7 +3,10 @@ package com.example.projet;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends AppCompatActivity {
     @Override
@@ -22,11 +25,12 @@ public class DetailsActivity extends AppCompatActivity {
             String descriptionS = getIntent().getStringExtra("description");
             String lvlS = getIntent().getStringExtra("lvl");
             String typeS = getIntent().getStringExtra("type");
-            setTxt(nomS,descriptionS,lvlS,typeS);
+            String imageUrlS=getIntent().getStringExtra("image");
+            setTxt(nomS,descriptionS,lvlS,typeS, imageUrlS);
         }
     }
 
-    private void setTxt(String nom, String description, String lvl, String type)
+    private void setTxt(String nom, String description, String lvl, String type, String imageUrl)
     {
         TextView nomTv = findViewById(R.id.nom);
         nomTv.setText(nom);
@@ -39,5 +43,12 @@ public class DetailsActivity extends AppCompatActivity {
 
         TextView typeTv = findViewById(R.id.type);
         typeTv.setText(type);
+
+        ImageView imageVw =  findViewById(R.id.image);
+        Picasso.with(getApplicationContext())
+                .load(imageUrl)
+                .into(imageVw);
+
+
     }
 }

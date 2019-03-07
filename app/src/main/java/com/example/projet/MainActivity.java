@@ -57,6 +57,7 @@ public class MainActivity extends Activity {
             intent.putExtra("description", arme.getDescription());
             intent.putExtra("lvl", arme.getLvl());
             intent.putExtra("type", arme.getType());
+            intent.putExtra("image", arme.getImgUrl());
             MainActivity.this.startActivity(intent);
         }
     }
