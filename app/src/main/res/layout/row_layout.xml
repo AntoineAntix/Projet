@@ -7,9 +7,11 @@
     android:padding="6dip"
     android:id="@+id/parent">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="65dp">
+
 
         <TextView
             android:id="@+id/cell_txt_weapons_name"
@@ -41,6 +43,7 @@
             android:text="WeaponID"
             android:textColor="@color/RowColor"
             android:textSize="12dp" />
+
 
         <ImageView
             android:id="@+id/cell_txt_weapons_image"
