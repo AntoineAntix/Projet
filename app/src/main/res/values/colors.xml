@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="RowColor">#FFFFFF</color>
     <color name="ColorBlack">#000000</color>
+    <color name="grey">#CCCCCC</color>
 </resources>
