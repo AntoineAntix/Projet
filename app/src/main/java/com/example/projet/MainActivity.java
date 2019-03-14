@@ -1,5 +1,6 @@
 package com.example.projet;
 
+import android.media.MediaPlayer;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,8 @@ public class MainActivity extends Activity {
     private RecyclerView.LayoutManager layoutManager;
     private Controller crt;
     private ProgressBar chargement;
+    private int m=0;
+
     public int i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.myRecyclerView);
         chargement = findViewById(R.id.chargement_main_activity);
-
+        if(m==0)
+        {
+            MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.dofusmusic);
+            mediaPlayer.start();
+            m=1;
+        }
         crt = new Controller(this);
         crt.onCreate();
     }
@@ -63,6 +71,5 @@ public class MainActivity extends Activity {
     }
     );
     recyclerView.setAdapter(adapter);
-
     }
 }

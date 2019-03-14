@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">API Dofus</string>
+    <string name="play_music_btn">Jouer_son</string>
 </resources>
