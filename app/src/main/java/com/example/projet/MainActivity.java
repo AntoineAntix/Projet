@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
     private RecyclerView.LayoutManager layoutManager;
     private Controller crt;
     private ProgressBar chargement;
-    private int m=0;
+    private MediaPlayer mediaPlayer;
 
     public int i;
     @Override
@@ -30,11 +30,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.myRecyclerView);
         chargement = findViewById(R.id.chargement_main_activity);
-        if(m==0)
+        if(mediaPlayer == null)
         {
-            MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.dofusmusic);
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.dofusmusic);
             mediaPlayer.start();
-            m=1;
         }
         crt = new Controller(this);
         crt.onCreate();
