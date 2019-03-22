@@ -3,6 +3,7 @@ package com.example.projet;
 import java.util.List;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.projet.OnItemClick;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
@@ -80,6 +82,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         Picasso.with(context)
                 .load(weaponActuel.getImgUrl())
                 .into(holder.imageVw);
+
+
+
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

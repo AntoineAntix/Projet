@@ -20,35 +20,32 @@ public class MainActivity extends Activity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private Controller crt;
-    private ProgressBar chargement;
+    private ProgressBar progressBar;
     private MediaPlayer mediaPlayer;
+    private static int m=0;
 
-    public int i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.myRecyclerView);
-        chargement = findViewById(R.id.chargement_main_activity);
-        if(mediaPlayer == null)
+        progressBar = findViewById(R.id.chargement_main_activity);
+        if(m==0)
         {
             mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.dofusmusic);
             mediaPlayer.start();
+            m=1;
         }
-        crt = new Controller(this);
+        crt = new Controller(this, getSharedPreferences("data", Context.MODE_PRIVATE));
         crt.onCreate();
     }
 
-
-
     public void showLoader(){
-        chargement.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
     }
-
     public void hideLoader(){
-        chargement.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
     }
-
     public void showList(List<Weapons> listWeapons)
     {
     recyclerView.setHasFixedSize(true);
@@ -71,4 +68,5 @@ public class MainActivity extends Activity {
     );
     recyclerView.setAdapter(adapter);
     }
+
 }
