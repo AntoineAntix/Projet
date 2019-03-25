@@ -1,25 +1,27 @@
 package com.example.projet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.projet.OnItemClick;
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+import android.text.TextUtils;
+import android.app.Activity;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
 {
     private final OnItemClick click;
     private List<Weapons> weapon;
     private Context context;
+    private List<Weapons> weaponFull;
 
 
     public Adapter(List<Weapons> dataBase, Context context, OnItemClick click)
@@ -27,6 +29,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         weapon=dataBase;
         this.click=click;
         this.context=context;
+        weaponFull=new ArrayList<>(weapon);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -82,10 +85,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         Picasso.with(context)
                 .load(weaponActuel.getImgUrl())
                 .into(holder.imageVw);
-
-
-
-
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

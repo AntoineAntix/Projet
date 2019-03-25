@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="6dip"
+    android:theme="@style/Base.Theme.MaterialComponents.Light.DarkActionBar"
     android:id="@+id/parent">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp">
+        android:layout_height="65dp"
+        tools:ignore="MissingConstraints">
 
 
         <TextView
@@ -64,4 +66,4 @@
 
     </RelativeLayout>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
