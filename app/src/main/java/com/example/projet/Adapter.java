@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 import android.text.TextUtils;
 import android.app.Activity;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable
 {
     private final OnItemClick click;
     private List<Weapons> weapon;
@@ -31,6 +31,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         this.context=context;
         weaponFull=new ArrayList<>(weapon);
     }
+
+
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
@@ -99,4 +101,41 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
     {
         return weapon.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return exampleFilter;
+    }
+
+    private Filter exampleFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Weapons> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(weaponFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Weapons item : weaponFull) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            weapon.clear();
+            weapon.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
 }

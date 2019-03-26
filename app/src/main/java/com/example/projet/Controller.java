@@ -23,6 +23,8 @@ public class Controller {
     private SharedPreferences sharedPreferences;
     private static Controller controller = null;
 
+    public List<Weapons> listWeapons;
+
     private static String key = "data";
 
     public static Controller getInstance(MainActivity mainActivity, SharedPreferences sharedPreferences)
@@ -66,7 +68,7 @@ public class Controller {
             call.enqueue(new Callback<List<Weapons>>() {
                 @Override
                 public void onResponse(Call<List<Weapons>> call, Response<List<Weapons>> response) {
-                    List<Weapons> listWeapons = response.body();
+                    listWeapons = response.body();
 
                     Gson gson = new Gson();
                     String listJ = gson.toJson(listWeapons);
