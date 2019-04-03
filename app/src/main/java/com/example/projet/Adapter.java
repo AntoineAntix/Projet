@@ -13,8 +13,6 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-import android.text.TextUtils;
-import android.app.Activity;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable
 {
@@ -104,29 +102,28 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
 
     @Override
     public Filter getFilter() {
-        return exampleFilter;
+        return filter;
     }
 
-    private Filter exampleFilter = new Filter() {
+    private Filter filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<Weapons> filteredList = new ArrayList<>();
+            List<Weapons> ListFilter = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(weaponFull);
+                ListFilter.addAll(weaponFull);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (Weapons item : weaponFull) {
-                    if (item.getName().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item);
+                for (Weapons arme : weaponFull) {
+                    if (arme.getName().toLowerCase().contains(filterPattern)) {
+                        ListFilter.add(arme);
                     }
                 }
             }
 
             FilterResults results = new FilterResults();
-            results.values = filteredList;
-
+            results.values = ListFilter;
             return results;
         }
 
