@@ -1,4 +1,4 @@
-package com.example.projet;
+package com.example.projet.Modele;
 
 public class Weapons {
     private String _id;
@@ -7,7 +7,6 @@ public class Weapons {
     private String lvl;
     private String type;
     private String imgUrl;
-    private String url;
 
     public String getName() {
         return name;
@@ -16,7 +15,6 @@ public class Weapons {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public String getDescription() {
         return description;
@@ -42,21 +40,14 @@ public class Weapons {
         this.type = type;
     }
 
-    public String getImageUrl() {
+    public String getImgUrl() {
         return imgUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImgUrl(String imageUrl) {
         this.imgUrl = imageUrl;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public String get_id() {
         return _id;

@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "397533545424",
+    "firebase_url": "https://api-dofus.firebaseio.com",
+    "project_id": "api-dofus",
+    "storage_bucket": "api-dofus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397533545424:android:7c279ffd1fed0d9b",
+        "android_client_info": {
+          "package_name": "com.example.projet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPIQyz1TVHcY4e1BHRfpbMmg-gdyi0Yvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397533545424-urp1lspao1kscu6612geaip24m822knr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
