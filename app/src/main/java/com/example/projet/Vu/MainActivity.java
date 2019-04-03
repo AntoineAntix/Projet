@@ -1,4 +1,4 @@
-package com.example.projet;
+package com.example.projet.Vu;
 
 
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +18,11 @@ import android.widget.Toast;
 import android.view.MenuInflater;
 
 
-import java.util.ArrayList;
+import com.example.projet.Controlleur.Controller;
+import com.example.projet.Modele.OnItemClick;
+import com.example.projet.Modele.Weapons;
+import com.example.projet.R;
+
 import java.util.List;
 
 

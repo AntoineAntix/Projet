@@ -1,6 +1,4 @@
-package com.example.projet;
-
-import com.example.projet.Weapons;
+package com.example.projet.Modele;
 
 public interface OnItemClick {
     void onItemClick (Weapons arme);

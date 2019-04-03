@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.MaterialComponents.Light.DarkActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Vu.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -23,14 +23,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DetailsActivity"></activity>
+        <activity android:name=".Vu.DetailsActivity"></activity>
 
-        <service android:name=".MessageReceiver">
+        <service android:name=".Controlleur.MessageReceiver">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".InstanceIdService">
+        <service android:name=".Controlleur.InstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>

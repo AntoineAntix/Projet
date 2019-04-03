@@ -1,4 +1,4 @@
-package com.example.projet;
+package com.example.projet.Vu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,10 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.projet.Modele.OnItemClick;
+import com.example.projet.Modele.Weapons;
+import com.example.projet.R;
 import com.squareup.picasso.Picasso;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable

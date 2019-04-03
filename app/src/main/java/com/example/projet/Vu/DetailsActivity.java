@@ -1,4 +1,4 @@
-package com.example.projet;
+package com.example.projet.Vu;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.projet.R;
 import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends AppCompatActivity {
