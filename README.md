@@ -15,7 +15,7 @@ Ce projet comprend les features suivants :
  - Appel vers une API Rest. 
  - Un RecyclerView pour afficher la liste des armes. 
  - Stockage des données de l'API en cache lors du premier chargement.
- - Notification Push pour signaler que l'application est ouverte (Firebase). 
+ - Notification Push via Firebase. 
  - Fond d'écran et icône de l'application personnalisés.
  - Barre de recherche par nom des armes.
  - Musique de fond - *"Dofus Astrub Theme Song"*.
