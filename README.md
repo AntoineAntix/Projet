@@ -11,11 +11,11 @@ Ce projet comprend les features suivants :
  - 2 activités : 
 			 - **MainActivity** : Contient la liste des Armes.
 			 - **DetailsActivity** : Contient la description de l'arme sélectionnée. 
- - Une ProgressBar pour symboliser le chargement de l'API. 
- - Appel vers une API Rest. 
- - Un RecyclerView pour afficher la liste des armes. 
- - Stockage des données de l'API en cache lors du premier chargement.
- - Notification Push via Firebase. 
+ - Une **ProgressBar** pour symboliser le **chargement de l'API**. 
+ - Appel vers une **API Rest**. 
+ - Un **RecyclerView** pour afficher la liste des armes. 
+ - **Stockage des données de l'API en cache** lors du premier chargement.
+ - **Notification Push** via Firebase. 
  - Fond d'écran et icône de l'application personnalisés.
  - Barre de recherche par nom des armes.
  - Musique de fond - *"Dofus Astrub Theme Song"*.
@@ -23,8 +23,8 @@ Ce projet comprend les features suivants :
 
 Le projet comprend l'architectures suivantes : 
 
- - GitFlow : branches master et develop.
- - Architecture MVC (Modèle - Vue - Controlleur).
+ - **GitFlow**: branches master et develop.
+ - Architecture **MVC** (Modèle - Vue - Controlleur).
  - Building l'APK de l'application.
 
 
