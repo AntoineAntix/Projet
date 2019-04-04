@@ -21,7 +21,7 @@ Ce projet comprend les features suivants :
  - Musique de fond - *"Dofus Astrub Theme Song"*.
  - Possibilité de défiler l'écran du Détails Activity.
 
-Le projet comprend l'architectures suivantes : 
+Le projet comprend les architectures suivantes : 
 
  - **GitFlow**: branches master et develop.
  - Architecture **MVC** (Modèle - Vue - Controlleur).
@@ -57,7 +57,7 @@ Le projet comprend l'architectures suivantes :
 
 #### Notification Push
 
-> **Note:** Permet de notifier l'utilisateur sur l'ouverture de l'application.
+> **Note:** Permet de notifier l'utilisateur.
 
 <p align="center">
 <img width="200" height="400" src="https://image.noelshack.com/fichiers/2019/14/3/1554300285-55908435-352030422102876-5397388128463880192-n.png">
