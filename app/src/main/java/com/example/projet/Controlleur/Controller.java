@@ -5,7 +5,7 @@ import android.util.Log;
 import android.content.SharedPreferences;
 import java.lang.reflect.Type;
 
-import com.example.projet.Vu.MainActivity;
+import com.example.projet.Vu.WeaponsActivity;
 import com.example.projet.Modele.Weapons;
 import com.example.projet.Modele.WeaponsRestApi;
 import com.google.gson.reflect.TypeToken;
@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Controller {
 
-    private final MainActivity mainActivity;
+    private final WeaponsActivity mainActivity;
     private SharedPreferences sharedPreferences;
     private static Controller controller = null;
 
@@ -31,7 +31,7 @@ public class Controller {
 
     private static String key = "data";
 
-    public static Controller getInstance(MainActivity mainActivity, SharedPreferences sharedPreferences)
+    public static Controller getInstance(WeaponsActivity mainActivity, SharedPreferences sharedPreferences)
     {
         if(controller ==null)
         {
@@ -39,7 +39,7 @@ public class Controller {
         }
         return controller;
     }
-    public Controller(MainActivity mainActivity, SharedPreferences sharedPreferences)
+    public Controller(WeaponsActivity mainActivity, SharedPreferences sharedPreferences)
     {
         this.mainActivity=mainActivity;
         this.sharedPreferences = sharedPreferences;
