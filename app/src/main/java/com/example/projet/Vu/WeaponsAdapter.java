@@ -13,20 +13,20 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.projet.Modele.OnItemClick;
+import com.example.projet.Modele.WeaponsOnItemClick;
 import com.example.projet.Modele.Weapons;
 import com.example.projet.R;
 import com.squareup.picasso.Picasso;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable
+public class WeaponsAdapter extends RecyclerView.Adapter<WeaponsAdapter.ViewHolder> implements Filterable
 {
-    private final OnItemClick click;
+    private final WeaponsOnItemClick click;
     private List<Weapons> weapon;
     private Context context;
     private List<Weapons> weaponFull;
 
 
-    public Adapter(List<Weapons> dataBase, Context context, OnItemClick click)
+    public WeaponsAdapter(List<Weapons> dataBase, Context context, WeaponsOnItemClick click)
     {
         weapon=dataBase;
         this.click=click;
@@ -68,10 +68,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
 
 
     @Override
-    public Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public WeaponsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-       View vu=inflater.inflate(R.layout.row_layout,parent,false);
+       View vu=inflater.inflate(R.layout.row_layout_weapons,parent,false);
        ViewHolder vuH = new ViewHolder(vu);
        return vuH;
     }

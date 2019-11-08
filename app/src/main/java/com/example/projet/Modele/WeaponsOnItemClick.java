@@ -1,5 +1,5 @@
 package com.example.projet.Modele;
 
-public interface OnItemClick {
+public interface WeaponsOnItemClick {
     void onItemClick (Weapons arme);
 }

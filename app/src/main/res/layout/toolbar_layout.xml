@@ -7,7 +7,4 @@
     android:theme="@style/Base.Theme.MaterialComponents.Light.DarkActionBar"
     app:popupTheme="@style/Base.Theme.MaterialComponents.Light"
     android:id="@+id/toolBar">
-
-
-
 </android.support.v7.widget.Toolbar>

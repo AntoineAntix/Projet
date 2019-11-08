@@ -1,4 +1,4 @@
-package com.example.projet.Controlleur;
+package com.example.projet.Controller;
 
 import android.app.Notification;
 import android.app.NotificationManager;

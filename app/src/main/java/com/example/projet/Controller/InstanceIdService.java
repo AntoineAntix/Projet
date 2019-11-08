@@ -1,4 +1,4 @@
-package com.example.projet.Controlleur;
+package com.example.projet.Controller;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;

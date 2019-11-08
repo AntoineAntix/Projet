@@ -1,4 +1,4 @@
-package com.example.projet.Controlleur;
+package com.example.projet.Controller;
 
 import android.util.Log;
 
@@ -21,48 +21,48 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Controller {
+public class WeaponsController {
 
-    private final WeaponsActivity mainActivity;
+    private final WeaponsActivity weaponsActivity;
     private SharedPreferences sharedPreferences;
-    private static Controller controller = null;
+    private static WeaponsController weaponsController = null;
 
     public List<Weapons> listWeapons;
 
     private static String key = "data";
 
-    public static Controller getInstance(WeaponsActivity mainActivity, SharedPreferences sharedPreferences)
+    public static WeaponsController getInstance(WeaponsActivity mainActivity, SharedPreferences sharedPreferences)
     {
-        if(controller ==null)
+        if(weaponsController ==null)
         {
-            controller =new Controller(mainActivity, sharedPreferences);
+            weaponsController =new WeaponsController(mainActivity, sharedPreferences);
         }
-        return controller;
+        return weaponsController;
     }
-    public Controller(WeaponsActivity mainActivity, SharedPreferences sharedPreferences)
+    public WeaponsController(WeaponsActivity weaponsActivity, SharedPreferences sharedPreferences)
     {
-        this.mainActivity=mainActivity;
+        this.weaponsActivity = weaponsActivity;
         this.sharedPreferences = sharedPreferences;
     }
     public void onCreate() {
         if (sharedPreferences.contains(key)) {
 
-            mainActivity.showLoader();
+            weaponsActivity.showLoader();
             String listJ = sharedPreferences.getString(key, null);
             Type listType = new TypeToken<List<Weapons>>(){}.getType();
             List<Weapons> listWeapons = new Gson().fromJson(listJ, listType);
-            mainActivity.showList(listWeapons);
-            mainActivity.hideLoader();
+            weaponsActivity.showList(listWeapons);
+            weaponsActivity.hideLoader();
 
 
         } else {
-            mainActivity.showLoader();
+            weaponsActivity.showLoader();
             Gson gson = new GsonBuilder()
                     .setLenient()
                     .create();
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://dofapi2.herokuapp.com/")
+                    .baseUrl("https://fr.dofus.dofapi.fr/")
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
 
@@ -82,8 +82,8 @@ public class Controller {
                             .putString(key, listJ)
                             .apply();
 
-                    mainActivity.showList(listWeapons);
-                    mainActivity.hideLoader();
+                    weaponsActivity.showList(listWeapons);
+                    weaponsActivity.hideLoader();
                 }
 
 

@@ -1,45 +1,41 @@
 package com.example.projet.Vu;
 
-
-import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ProgressBar;
-import android.support.v7.widget.SearchView;
 import android.widget.Toast;
-import android.view.MenuInflater;
 
-
-import com.example.projet.Controller.WeaponsController;
-import com.example.projet.Modele.WeaponsOnItemClick;
-import com.example.projet.Modele.Weapons;
+import com.example.projet.Controller.ClassesController;
+import com.example.projet.Modele.Classe;
+import com.example.projet.Modele.ClassesOnItemClick;
 import com.example.projet.R;
 
 import java.util.List;
 
-
-public class WeaponsActivity extends AppCompatActivity
-{
+public class ClassesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private WeaponsAdapter weaponsAdapter;
+    private ClassesAdapter classesAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private WeaponsController crt;
+    private ClassesController crt;
     private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weapons);
+        setContentView(R.layout.activity_classes);
         recyclerView = findViewById(R.id.myRecyclerView);
         progressBar = findViewById(R.id.chargement_main_activity);
-        crt = new WeaponsController(this, getSharedPreferences("data", Context.MODE_PRIVATE));
+        crt = new ClassesController(this, getSharedPreferences("dataClasse", Context.MODE_PRIVATE));
         crt.onCreate();
     }
 
@@ -49,27 +45,28 @@ public class WeaponsActivity extends AppCompatActivity
     public void hideLoader(){
         progressBar.setVisibility(View.GONE);
     }
-    public void showList(List<Weapons> listWeapons)
+    public void showList(List<Classe> listClasses)
     {
-    recyclerView.setHasFixedSize(true);
-    layoutManager=new LinearLayoutManager(this);
-    recyclerView.setLayoutManager(layoutManager);
-    weaponsAdapter = new WeaponsAdapter(listWeapons, getApplicationContext(), new WeaponsOnItemClick() {
-        @Override
-        public void onItemClick(Weapons arme) {
-            Toast.makeText(getApplicationContext(), arme.getName(), Toast.LENGTH_SHORT).show();
+        recyclerView.setHasFixedSize(true);
+        layoutManager=new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        classesAdapter = new ClassesAdapter(listClasses, getApplicationContext(), new ClassesOnItemClick() {
+            @Override
+            public void onItemClick(Classe classes) {
+                Toast.makeText(getApplicationContext(), classes.getName(), Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(getApplicationContext(), WeaponsDetailsActivity.class);
-            intent.putExtra("nom", arme.getName());
-            intent.putExtra("description", arme.getDescription());
-            intent.putExtra("lvl", arme.getLvl());
-            intent.putExtra("type", arme.getType());
-            intent.putExtra("image", arme.getImgUrl());
-            WeaponsActivity.this.startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), ClassesDetailsActivity.class);
+                intent.putExtra("nom", classes.getName());
+                intent.putExtra("description", classes.getDescription());
+                intent.putExtra("url", classes.getUrl());
+                intent.putExtra("imageMale", classes.getMaleImg());
+                intent.putExtra("imageFemale", classes.getFemaleImg());
+                //intent.putExtra("roles", classes.getRoles());
+                ClassesActivity.this.startActivity(intent);
+            }
         }
-    }
-    );
-    recyclerView.setAdapter(weaponsAdapter);
+        );
+        recyclerView.setAdapter(classesAdapter);
     }
 
 
@@ -91,11 +88,10 @@ public class WeaponsActivity extends AppCompatActivity
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                weaponsAdapter.getFilter().filter(newText);
+                classesAdapter.getFilter().filter(newText);
                 return false;
             }
         });
         return true;
     }
-
 }
