@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.example.projet.Modele.Classe;
 import com.example.projet.Modele.ClassesRestApi;
-import com.example.projet.Vu.ClassesActivity;
+import com.example.projet.Vu.Fragments.FragmentClasses;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ClassesController {
-    private final ClassesActivity classesActivity;
+    private final FragmentClasses classesActivity;
     private SharedPreferences sharedPreferences;
     private static ClassesController classesController = null;
 
@@ -28,14 +28,14 @@ public class ClassesController {
 
     private static String keyClasses = "dataClasse";
 
-    public static ClassesController getInstance(ClassesActivity mainActivity, SharedPreferences sharedPreferences) {
+    public static ClassesController getInstance(FragmentClasses mainActivity, SharedPreferences sharedPreferences) {
         if (classesController == null) {
             classesController = new ClassesController(mainActivity, sharedPreferences);
         }
         return classesController;
     }
 
-    public ClassesController(ClassesActivity classesActivity, SharedPreferences sharedPreferences) {
+    public ClassesController(FragmentClasses classesActivity, SharedPreferences sharedPreferences) {
         this.classesActivity = classesActivity;
         this.sharedPreferences = sharedPreferences;
     }

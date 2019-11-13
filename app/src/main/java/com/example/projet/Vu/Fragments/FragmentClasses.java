@@ -1,42 +1,54 @@
-package com.example.projet.Vu;
+package com.example.projet.Vu.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projet.Controller.ClassesController;
 import com.example.projet.Modele.Classe;
 import com.example.projet.Modele.ClassesOnItemClick;
 import com.example.projet.R;
+import com.example.projet.Vu.ClassesAdapter;
+import com.example.projet.Vu.ClassesDetailsActivity;
 
 import java.util.List;
 
-public class ClassesActivity extends AppCompatActivity {
+public class FragmentClasses extends Fragment {
+    public View v;
     private RecyclerView recyclerView;
     private ClassesAdapter classesAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ClassesController crt;
     private ProgressBar progressBar;
 
+    public FragmentClasses() {
+    }
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_classes);
-        recyclerView = findViewById(R.id.myRecyclerView);
-        progressBar = findViewById(R.id.chargement_main_activity);
-        crt = new ClassesController(this, getSharedPreferences("dataClasse", Context.MODE_PRIVATE));
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        v=inflater.inflate(R.layout.classes_fragment, container, false);
+        recyclerView = v.findViewById(R.id.myRecyclerView);
+        progressBar = v.findViewById(R.id.chargement_main_activity);
+        crt = new ClassesController(this, getActivity().getSharedPreferences("dataClasse", Context.MODE_PRIVATE));
         crt.onCreate();
+        return v;
     }
 
     public void showLoader(){
@@ -48,21 +60,21 @@ public class ClassesActivity extends AppCompatActivity {
     public void showList(List<Classe> listClasses)
     {
         recyclerView.setHasFixedSize(true);
-        layoutManager=new LinearLayoutManager(this);
+        layoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        classesAdapter = new ClassesAdapter(listClasses, getApplicationContext(), new ClassesOnItemClick() {
+        classesAdapter = new ClassesAdapter(listClasses, getActivity().getApplicationContext(), new ClassesOnItemClick() {
             @Override
             public void onItemClick(Classe classes) {
-                Toast.makeText(getApplicationContext(), classes.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), classes.getName(), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(), ClassesDetailsActivity.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), ClassesDetailsActivity.class);
                 intent.putExtra("nom", classes.getName());
                 intent.putExtra("description", classes.getDescription());
                 intent.putExtra("url", classes.getUrl());
                 intent.putExtra("imageMale", classes.getMaleImg());
                 intent.putExtra("imageFemale", classes.getFemaleImg());
                 intent.putExtra("roles", classes.getRoles());
-                ClassesActivity.this.startActivity(intent);
+                FragmentClasses.this.startActivity(intent);
             }
         }
         );
@@ -70,9 +82,9 @@ public class ClassesActivity extends AppCompatActivity {
     }
 
 
-    @Override
+    //@Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+        MenuInflater inflater = getActivity().getMenuInflater();
         inflater.inflate(R.menu.toolbar_menu, menu);
 
         MenuItem searchItem = menu.findItem(R.id.action_search);

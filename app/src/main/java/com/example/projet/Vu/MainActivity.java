@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.projet.R;
+import com.example.projet.Vu.Fragments.MainActivityFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,13 +28,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void showWeapons(View view) {
-        Intent intent = new Intent(this, WeaponsActivity.class);
-        startActivity(intent);
-    }
-
-    public void showClasses(View view) {
-        Intent intent = new Intent(this, ClassesActivity.class);
+    public void showFragment(View view) {
+        Intent intent = new Intent(this, MainActivityFragment.class);
         startActivity(intent);
     }
 

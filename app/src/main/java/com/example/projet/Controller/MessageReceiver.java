@@ -6,8 +6,8 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 
-import com.example.projet.Vu.WeaponsActivity;
 import com.example.projet.R;
+import com.example.projet.Vu.MainActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -30,7 +30,7 @@ public class MessageReceiver extends FirebaseMessagingService {
     }
 
     private void showNotifications(String title, String msg) {
-        Intent i = new Intent(this, WeaponsActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, REQUEST_CODE, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
