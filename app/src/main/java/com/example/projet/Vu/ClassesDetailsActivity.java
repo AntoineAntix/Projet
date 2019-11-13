@@ -1,8 +1,8 @@
 package com.example.projet.Vu;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,13 +22,14 @@ public class ClassesDetailsActivity extends AppCompatActivity {
             String nomS = getIntent().getStringExtra("nom");
             String descriptionS = getIntent().getStringExtra("description");
             String urlS = getIntent().getStringExtra("url");
+            String roleS = getIntent().getStringExtra("roles");
             String imageMaleS=getIntent().getStringExtra("imageMale");
             String imageFemaleS=getIntent().getStringExtra("imageFemale");
-            setTxt(nomS,descriptionS,urlS, imageMaleS, imageFemaleS);
+            setTxt(nomS,descriptionS,urlS, imageMaleS, imageFemaleS, roleS);
         }
     }
 
-    private void setTxt(String nom, String description, String urlS, String imageMaleS, String imageFemaleS)
+    private void setTxt(String nom, String description, String urlS, String imageMaleS, String imageFemaleS, String roleS)
     {
         TextView nomTv = findViewById(R.id.nom);
         nomTv.setText(nom);

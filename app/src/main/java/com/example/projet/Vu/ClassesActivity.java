@@ -3,10 +3,10 @@ package com.example.projet.Vu;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -61,7 +61,7 @@ public class ClassesActivity extends AppCompatActivity {
                 intent.putExtra("url", classes.getUrl());
                 intent.putExtra("imageMale", classes.getMaleImg());
                 intent.putExtra("imageFemale", classes.getFemaleImg());
-                //intent.putExtra("roles", classes.getRoles());
+                intent.putExtra("roles", classes.getRoles());
                 ClassesActivity.this.startActivity(intent);
             }
         }
