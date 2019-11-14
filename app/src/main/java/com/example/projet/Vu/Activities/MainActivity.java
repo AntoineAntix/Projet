@@ -1,4 +1,4 @@
-package com.example.projet.Vu;
+package com.example.projet.Vu.Activities;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.projet.R;
-import com.example.projet.Vu.Fragments.MainActivityFragment;
 
 public class MainActivity extends AppCompatActivity {
 

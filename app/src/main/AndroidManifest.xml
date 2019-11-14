@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.MaterialComponents.Light.DarkActionBar">
-        <activity android:name=".Vu.MainActivity">
+        <activity android:name=".Vu.Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Vu.Fragments.MainActivityFragment">
+        <activity android:name=".Vu.Activities.MainActivityFragment">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.SEARCH" />
@@ -30,9 +30,11 @@
         </activity>
 
 
-        <activity android:name=".Vu.WeaponsDetailsActivity"></activity>
+        <activity android:name=".Vu.Activities.EquipmentsDetailsActivity"></activity>
 
-        <activity android:name=".Vu.ClassesDetailsActivity"></activity>
+        <activity android:name=".Vu.Activities.ClassesDetailsActivity"></activity>
+
+        <activity android:name=".Vu.Activities.WeaponsDetailsActivity"></activity>
 
 
 

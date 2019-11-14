@@ -1,4 +1,4 @@
-package com.example.projet.Modele;
+package com.example.projet.Modele.Weapons;
 
 public class Weapons {
     private String _id;

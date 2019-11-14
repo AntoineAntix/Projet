@@ -4,35 +4,30 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projet.Controller.ClassesController;
-import com.example.projet.Modele.Classe;
-import com.example.projet.Modele.ClassesOnItemClick;
+import com.example.projet.Modele.Classes.Classe;
+import com.example.projet.Modele.Classes.ClassesOnItemClick;
 import com.example.projet.R;
-import com.example.projet.Vu.ClassesAdapter;
-import com.example.projet.Vu.ClassesDetailsActivity;
+import com.example.projet.Vu.Adapter.ClassesAdapter;
+import com.example.projet.Vu.Activities.ClassesDetailsActivity;
 
 import java.util.List;
 
 public class FragmentClasses extends Fragment {
     public View v;
     private RecyclerView recyclerView;
-    private ClassesAdapter classesAdapter;
+    public static ClassesAdapter classesAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ClassesController crt;
     private ProgressBar progressBar;
@@ -79,31 +74,5 @@ public class FragmentClasses extends Fragment {
         }
         );
         recyclerView.setAdapter(classesAdapter);
-    }
-
-
-    //@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getActivity().getMenuInflater();
-        inflater.inflate(R.menu.toolbar_menu, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                classesAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-        return true;
     }
 }

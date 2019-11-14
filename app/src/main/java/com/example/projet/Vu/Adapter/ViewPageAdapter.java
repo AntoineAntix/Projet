@@ -1,4 +1,4 @@
-package com.example.projet.Vu;
+package com.example.projet.Vu.Adapter;
 
 import java.util.ArrayList;
 import java.util.List;

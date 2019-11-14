@@ -3,8 +3,8 @@ package com.example.projet.Controller;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.example.projet.Modele.Classe;
-import com.example.projet.Modele.ClassesRestApi;
+import com.example.projet.Modele.Classes.Classe;
+import com.example.projet.Modele.Classes.ClassesRestApi;
 import com.example.projet.Vu.Fragments.FragmentClasses;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

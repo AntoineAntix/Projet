@@ -1,4 +1,4 @@
-package com.example.projet.Vu;
+package com.example.projet.Vu.Adapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +13,25 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.projet.Modele.WeaponsOnItemClick;
-import com.example.projet.Modele.Weapons;
+import com.example.projet.Modele.Equipments.EquipmentsOnItemClick;
+import com.example.projet.Modele.Equipments.Equipments;
 import com.example.projet.R;
 import com.squareup.picasso.Picasso;
 
-public class WeaponsAdapter extends RecyclerView.Adapter<WeaponsAdapter.ViewHolder> implements Filterable
+public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.ViewHolder> implements Filterable
 {
-    private final WeaponsOnItemClick click;
-    private List<Weapons> weapon;
+    private final EquipmentsOnItemClick click;
+    private List<Equipments> equipmentsList;
     private Context context;
-    private List<Weapons> weaponFull;
+    private List<Equipments> equipmentsListFull;
 
 
-    public WeaponsAdapter(List<Weapons> dataBase, Context context, WeaponsOnItemClick click)
+    public EquipmentsAdapter(List<Equipments> dataBase, Context context, EquipmentsOnItemClick click)
     {
-        weapon=dataBase;
+        equipmentsList =dataBase;
         this.click=click;
         this.context=context;
-        weaponFull=new ArrayList<>(weapon);
+        equipmentsListFull =new ArrayList<>(equipmentsList);
     }
 
 
@@ -53,25 +53,25 @@ public class WeaponsAdapter extends RecyclerView.Adapter<WeaponsAdapter.ViewHold
         }
     }
 
-    public void ajouter(int position, Weapons arme)
+    public void ajouter(int position, Equipments arme)
     {
-        weapon.add(position,arme);
+        equipmentsList.add(position,arme);
         notifyItemInserted(position);
     }
 
     public void supprimer(int position)
     {
-        weapon.remove(position);
+        equipmentsList.remove(position);
         notifyItemRemoved(position);
     }
 
 
 
     @Override
-    public WeaponsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public EquipmentsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-       View vu=inflater.inflate(R.layout.row_layout_weapons,parent,false);
+       View vu=inflater.inflate(R.layout.row_layout_equipments,parent,false);
        ViewHolder vuH = new ViewHolder(vu);
        return vuH;
     }
@@ -79,21 +79,21 @@ public class WeaponsAdapter extends RecyclerView.Adapter<WeaponsAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position)
     {
-        final Weapons weaponActuel = weapon.get(position);
-        final String name=weaponActuel.getName();
-        final String id=weaponActuel.get_id();
+        final Equipments equipmentActuel = equipmentsList.get(position);
+        final String name=equipmentActuel.getName();
+        final String id=equipmentActuel.get_id();
 
         holder.nomTxt.setText(name);
         holder.idTxt.setText(id);
 
         Picasso.with(context)
-                .load(weaponActuel.getImgUrl())
+                .load(equipmentActuel.getImgUrl())
                 .into(holder.imageVw);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                click.onItemClick(weaponActuel);
+                click.onItemClick(equipmentActuel);
             }
         });
     }
@@ -101,7 +101,7 @@ public class WeaponsAdapter extends RecyclerView.Adapter<WeaponsAdapter.ViewHold
     @Override
     public int getItemCount()
     {
-        return weapon.size();
+        return equipmentsList.size();
     }
 
     @Override
@@ -112,16 +112,16 @@ public class WeaponsAdapter extends RecyclerView.Adapter<WeaponsAdapter.ViewHold
     private Filter filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<Weapons> ListFilter = new ArrayList<>();
+            List<Equipments> ListFilter = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
-                ListFilter.addAll(weaponFull);
+                ListFilter.addAll(equipmentsListFull);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (Weapons arme : weaponFull) {
-                    if (arme.getName().toLowerCase().contains(filterPattern)) {
-                        ListFilter.add(arme);
+                for (Equipments equipments : equipmentsListFull) {
+                    if (equipments.getName().toLowerCase().contains(filterPattern)) {
+                        ListFilter.add(equipments);
                     }
                 }
             }
@@ -133,8 +133,8 @@ public class WeaponsAdapter extends RecyclerView.Adapter<WeaponsAdapter.ViewHold
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            weapon.clear();
-            weapon.addAll((List) results.values);
+            equipmentsList.clear();
+            equipmentsList.addAll((List) results.values);
             notifyDataSetChanged();
         }
     };

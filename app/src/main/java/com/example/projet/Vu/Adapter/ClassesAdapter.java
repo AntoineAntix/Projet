@@ -1,4 +1,4 @@
-package com.example.projet.Vu;
+package com.example.projet.Vu.Adapter;
 
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,8 +9,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import com.example.projet.Modele.Classe;
-import com.example.projet.Modele.ClassesOnItemClick;
+import com.example.projet.Modele.Classes.Classe;
+import com.example.projet.Modele.Classes.ClassesOnItemClick;
 import com.example.projet.R;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.projet.Vu;
+package com.example.projet.Vu.Activities;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -9,11 +9,11 @@ import android.widget.TextView;
 import com.example.projet.R;
 import com.squareup.picasso.Picasso;
 
-public class WeaponsDetailsActivity extends AppCompatActivity {
+public class EquipmentsDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details_weapons);
+        setContentView(R.layout.activity_details_equipments);
 
         getIncommingIntent();
     }
@@ -24,7 +24,7 @@ public class WeaponsDetailsActivity extends AppCompatActivity {
         {
             String nomS = getIntent().getStringExtra("nom");
             String descriptionS = getIntent().getStringExtra("description");
-            String lvlS = getIntent().getStringExtra("lvl");
+            String lvlS = getIntent().getStringExtra("level");
             String typeS = getIntent().getStringExtra("type");
             String imageUrlS=getIntent().getStringExtra("image");
             setTxt(nomS,descriptionS,lvlS,typeS, imageUrlS);

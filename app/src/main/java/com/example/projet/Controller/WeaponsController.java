@@ -6,8 +6,8 @@ import android.content.SharedPreferences;
 import java.lang.reflect.Type;
 
 import com.example.projet.Vu.Fragments.FragmentWeapons;
-import com.example.projet.Modele.Weapons;
-import com.example.projet.Modele.WeaponsRestApi;
+import com.example.projet.Modele.Weapons.Weapons;
+import com.example.projet.Modele.Weapons.WeaponsRestApi;
 import com.google.gson.reflect.TypeToken;
 
 import com.google.gson.Gson;
@@ -29,7 +29,7 @@ public class WeaponsController {
 
     public List<Weapons> listWeapons;
 
-    private static String key = "data";
+    private static String key = "dataWeapons";
 
     public static WeaponsController getInstance(FragmentWeapons mainActivity, SharedPreferences sharedPreferences)
     {

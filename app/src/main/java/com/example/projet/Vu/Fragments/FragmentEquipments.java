@@ -20,34 +20,34 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
 
-import com.example.projet.Controller.WeaponsController;
-import com.example.projet.Modele.Weapons.Weapons;
-import com.example.projet.Modele.Weapons.WeaponsOnItemClick;
+import com.example.projet.Controller.EquipmentsController;
+import com.example.projet.Modele.Equipments.Equipments;
+import com.example.projet.Modele.Equipments.EquipmentsOnItemClick;
 import com.example.projet.R;
-import com.example.projet.Vu.Adapter.WeaponsAdapter;
-import com.example.projet.Vu.Activities.WeaponsDetailsActivity;
+import com.example.projet.Vu.Adapter.EquipmentsAdapter;
+import com.example.projet.Vu.Activities.EquipmentsDetailsActivity;
 
 import java.util.List;
 
-public class FragmentWeapons extends Fragment {
+public class FragmentEquipments extends Fragment {
     public View v ;
     private RecyclerView recyclerView;
-    private WeaponsAdapter weaponsAdapter;
+    public static EquipmentsAdapter equipmentsAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private WeaponsController crt;
+    private EquipmentsController crt;
     private ProgressBar progressBar;
 
-    public FragmentWeapons() {
+    public FragmentEquipments() {
 
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.weapons_fragment,container,false);
+        v = inflater.inflate(R.layout.equipments_fragment,container,false);
         recyclerView = v.findViewById(R.id.myRecyclerView);
         progressBar = v.findViewById(R.id.chargement_main_activity);
-        crt = new WeaponsController( this, getActivity().getSharedPreferences("data", Context.MODE_PRIVATE));
+        crt = new EquipmentsController( this, getActivity().getSharedPreferences("data", Context.MODE_PRIVATE));
         crt.onCreate();
         return v;
     }
@@ -58,27 +58,27 @@ public class FragmentWeapons extends Fragment {
     public void hideLoader(){
         progressBar.setVisibility(View.GONE);
     }
-    public void showList(List<Weapons> listWeapons)
+    public void showList(List<Equipments> listWeapons)
     {
         recyclerView.setHasFixedSize(true);
         layoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        weaponsAdapter = new WeaponsAdapter(listWeapons, getActivity().getApplicationContext(), new WeaponsOnItemClick() {
+        equipmentsAdapter = new EquipmentsAdapter(listWeapons, getActivity().getApplicationContext(), new EquipmentsOnItemClick() {
             @Override
-            public void onItemClick(Weapons arme) {
-                Toast.makeText(getActivity().getApplicationContext(), arme.getName(), Toast.LENGTH_SHORT).show();
+            public void onItemClick(Equipments equipments) {
+                Toast.makeText(getActivity().getApplicationContext(), equipments.getName(), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getActivity().getApplicationContext(), WeaponsDetailsActivity.class);
-                intent.putExtra("nom", arme.getName());
-                intent.putExtra("description", arme.getDescription());
-                intent.putExtra("lvl", arme.getLvl());
-                intent.putExtra("type", arme.getType());
-                intent.putExtra("image", arme.getImgUrl());
-                FragmentWeapons.this.startActivity(intent);
+                Intent intent = new Intent(getActivity().getApplicationContext(), EquipmentsDetailsActivity.class);
+                intent.putExtra("nom", equipments.getName());
+                intent.putExtra("description", equipments.getDescription());
+                intent.putExtra("level", equipments.getLvl());
+                intent.putExtra("type", equipments.getType());
+                intent.putExtra("image", equipments.getImgUrl());
+                FragmentEquipments.this.startActivity(intent);
             }
         }
         );
-        recyclerView.setAdapter(weaponsAdapter);
+        recyclerView.setAdapter(equipmentsAdapter);
     }
 
 
@@ -100,7 +100,7 @@ public class FragmentWeapons extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                weaponsAdapter.getFilter().filter(newText);
+                equipmentsAdapter.getFilter().filter(newText);
                 return false;
             }
         });

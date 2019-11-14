@@ -1,4 +1,4 @@
-package com.example.projet.Vu;
+package com.example.projet.Vu.Activities;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
