@@ -4,7 +4,7 @@ public class Weapons {
     private String _id;
     private String name;
     private String description;
-    private String lvl;
+    private String level;
     private String type;
     private String imgUrl;
 
@@ -25,11 +25,11 @@ public class Weapons {
     }
 
     public String getLvl() {
-        return lvl;
+        return level;
     }
 
     public void setLvl(String lvl) {
-        this.lvl = lvl;
+        this.level = lvl;
     }
 
     public String getType() {

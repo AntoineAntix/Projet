@@ -47,7 +47,7 @@ public class FragmentEquipments extends Fragment {
         v = inflater.inflate(R.layout.equipments_fragment,container,false);
         recyclerView = v.findViewById(R.id.myRecyclerView);
         progressBar = v.findViewById(R.id.chargement_main_activity);
-        crt = new EquipmentsController( this, getActivity().getSharedPreferences("data", Context.MODE_PRIVATE));
+        crt = new EquipmentsController( this, getActivity().getSharedPreferences("dataEquipment", Context.MODE_PRIVATE));
         crt.onCreate();
         return v;
     }
@@ -79,31 +79,5 @@ public class FragmentEquipments extends Fragment {
         }
         );
         recyclerView.setAdapter(equipmentsAdapter);
-    }
-
-
-    //@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getActivity().getMenuInflater();
-        inflater.inflate(R.menu.toolbar_menu, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                equipmentsAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-        return true;
     }
 }

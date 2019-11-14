@@ -66,6 +66,7 @@ public class MainActivityFragment extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 FragmentClasses.classesAdapter.getFilter().filter(newText);
                 FragmentEquipments.equipmentsAdapter.getFilter().filter(newText);
+                FragmentWeapons.weaponsAdapter.getFilter().filter(newText);
                 return false;
             }
         });

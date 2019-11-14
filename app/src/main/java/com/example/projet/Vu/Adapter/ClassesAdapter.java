@@ -20,13 +20,13 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
 
     private final ClassesOnItemClick click;
     private List<Classe> classes;
-    private Context contextClasses;
+    private Context context;
     private List<Classe> classesFull;
 
     public ClassesAdapter(List<Classe> dataBase, Context context, ClassesOnItemClick click) {
         classes=dataBase;
         this.click=click;
-        this.contextClasses=context;
+        this.context=context;
         classesFull=new ArrayList<>(classes);
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
