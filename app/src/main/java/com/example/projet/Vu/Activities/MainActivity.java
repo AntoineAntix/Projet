@@ -75,6 +75,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         closeDrawer();
 
         switch (menuItem.getItemId()){
+            case R.id.nav_accueil_classe:
+                Intent acc = new Intent(MainActivity.this,MainActivity.class);
+                startActivity(acc);
+                break;
+
             case R.id.nav_enc_classe:
                 Intent enc = new Intent(MainActivity.this,EncyclopedieActivityFragment.class);
                 startActivity(enc);

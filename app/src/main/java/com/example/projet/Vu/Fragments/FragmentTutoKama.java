@@ -34,11 +34,11 @@ public class FragmentTutoKama extends Fragment {
         recyclerView.setLayoutManager( new LinearLayoutManager(getActivity().getApplicationContext()));
 
         if(situation == 0) {
-            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/p3ENO5voEsc\" frameborder=\"0\" allowfullscreen></iframe>"));
-            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/Vzy0rzlOIow\" frameborder=\"0\" allowfullscreen></iframe>"));
-            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/cwLboTqzIIw\" frameborder=\"0\" allowfullscreen></iframe>"));
-            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/xD4smESQ8Ck\" frameborder=\"0\" allowfullscreen></iframe>"));
-            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/49CohezL8X4\" frameborder=\"0\" allowfullscreen></iframe>"));
+            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/p3ENO5voEsc\" frameborder=\"0\" allowfullscreen></iframe>","Tuto Kama EP.1"));
+            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/Vzy0rzlOIow\" frameborder=\"0\" allowfullscreen></iframe>","Tuto Kama EP.2"));
+            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/cwLboTqzIIw\" frameborder=\"0\" allowfullscreen></iframe>","Tuto Kama EP.3"));
+            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/xD4smESQ8Ck\" frameborder=\"0\" allowfullscreen></iframe>","Tuto Kama EP.4"));
+            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/49CohezL8X4\" frameborder=\"0\" allowfullscreen></iframe>","Tuto Kama EP.5"));
 
             situation=1;
         }

@@ -7,8 +7,9 @@ public class YouTubeVideos {
     public YouTubeVideos() {
     }
 
-    public YouTubeVideos(String videoUrl) {
+    public YouTubeVideos(String videoUrl, String name) {
         this.videoUrl = videoUrl;
+        this.name = name;
     }
 
     public String getVideoUrl() {

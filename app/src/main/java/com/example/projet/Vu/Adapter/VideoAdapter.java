@@ -37,8 +37,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     public void onBindViewHolder(VideoViewHolder holder, int position) {
 
         holder.videoWeb.loadData( youtubeVideoList.get(position).getVideoUrl(), "text/html" , "utf-8" );
-       // final String name1="Tuto niveau 1 à 100";
-        // final String name2="Tuto niveau 100 à 200";
+        holder.nomTxt.setText( youtubeVideoList.get(position).getName());
 
     }
 
@@ -50,13 +49,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     public class VideoViewHolder extends RecyclerView.ViewHolder{
 
         public WebView videoWeb;
-        //public TextView nomTxt;
+        public TextView nomTxt;
 
         public VideoViewHolder(View itemView) {
             super(itemView);
 
             videoWeb = (WebView) itemView.findViewById(R.id.videoWebView);
-           // nomTxt = (TextView) itemView.findViewById(R.id.cell_txt_weapons_name);
+            nomTxt = (TextView) itemView.findViewById(R.id.textView);
             videoWeb.getSettings().setJavaScriptEnabled(true);
             videoWeb.setWebChromeClient(new WebChromeClient() {
 

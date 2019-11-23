@@ -23,17 +23,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Vu.Activities.EncyclopedieActivityFragment">
+        <activity android:name=".Vu.Activities.EncyclopedieActivityFragment"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".Vu.Activities.TutoActivityFragment">
+        <activity android:name=".Vu.Activities.TutoActivityFragment"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
 

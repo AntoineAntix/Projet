@@ -35,8 +35,8 @@ public class FragmentTutoXP extends Fragment {
         recyclerView.setLayoutManager( new LinearLayoutManager(getActivity().getApplicationContext()));
 
         if(situation == 0) {
-            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/5yAdo_907Rg\" frameborder=\"0\" allowfullscreen></iframe>"));
-            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/qoQZsk7uzPo\" frameborder=\"0\" allowfullscreen></iframe>"));
+            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/5yAdo_907Rg\" frameborder=\"0\" allowfullscreen></iframe>","XP LVL 1 à 100"));
+            youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/qoQZsk7uzPo\" frameborder=\"0\" allowfullscreen></iframe>","XP LVL 100 à 200"));
             situation=1;
         }
         VideoAdapter videoAdapter = new VideoAdapter(youtubeVideos);

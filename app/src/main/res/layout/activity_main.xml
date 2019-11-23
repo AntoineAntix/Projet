@@ -6,7 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"
     tools:context=".Vu.Activities.MainActivity"
     android:fitsSystemWindows="true"
     android:background="@drawable/fondecran">
