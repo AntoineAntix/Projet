@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 
 
@@ -14,15 +15,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.MaterialComponents.Light.DarkActionBar">
-        <activity android:name=".Vu.Activities.MainActivity">
+        <activity android:name=".Vu.Activities.MainActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Vu.Activities.EncyclopedieActivityFragment">
+            <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".Vu.Activities.MainActivityFragment">
+        <activity android:name=".Vu.Activities.TutoActivityFragment">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.SEARCH" />

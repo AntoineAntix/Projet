@@ -17,7 +17,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.viewpager.widget.ViewPager;
 import com.example.projet.R;
 
-public class MainActivityFragment extends AppCompatActivity {
+public class EncyclopedieActivityFragment extends AppCompatActivity {
     private TabLayout tablayout;
     private ViewPager viewPager;
     private ViewPageAdapter adapter;
@@ -26,7 +26,7 @@ public class MainActivityFragment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_fragment);
+        setContentView(R.layout.activity_main_encyclopedie_fragment);
 
         tablayout = (TabLayout) findViewById(R.id.tablayout_id);
         viewPager = (ViewPager) findViewById(R.id.viewpager_id);
@@ -34,14 +34,16 @@ public class MainActivityFragment extends AppCompatActivity {
 
         tablayout.setTabTextColors(getResources().getColor(R.color.RowColor),getResources().getColor(R.color.colorAccent));
 
-
-
         adapter.AddFragment(new FragmentClasses(), "Classes");
         adapter.AddFragment(new FragmentEquipments(), "Equipements");
         adapter.AddFragment(new FragmentWeapons(), "Armes");
 
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
+
+        tablayout.getTabAt(0).setIcon(R.drawable.ic_group);
+        tablayout.getTabAt(1).setIcon(R.drawable.ic_equipment);
+        tablayout.getTabAt(2).setIcon(R.drawable.ic_arme);
 
 
     }

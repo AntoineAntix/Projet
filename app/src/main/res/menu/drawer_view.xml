@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Univers">
+            <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_enc_classe"
+                    android:icon="@drawable/ic_group"
+                    android:title="Encyclopedie" />
+            </group>
+        </menu>
+
+    </item>
+
+    <item android:title="Astuces">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_tut_classe"
+                    android:icon="@drawable/ic_tuto"
+                    android:title="Tutoriel" />
+            </group>
+        </menu>
+    </item>
+
+
+    <item tools:ignore="MenuTitle">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_propos_classe"
+                    android:title="A propos" />
+            </group>
+        </menu>
+
+    </item>
+
+</menu>
