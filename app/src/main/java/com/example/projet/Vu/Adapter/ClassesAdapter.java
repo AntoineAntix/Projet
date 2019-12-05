@@ -7,11 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.projet.Modele.Classes.Classe;
 import com.example.projet.Modele.Classes.ClassesOnItemClick;
 import com.example.projet.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,12 +34,14 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nomClasse;
+        public ImageView imgClasse;
         public View layoutClasse;
 
         public ViewHolder(View vu) {
             super(vu);
-            layoutClasse = vu;
+            layoutClasse = (LinearLayout) itemView.findViewById(R.id.linearLayout);
             nomClasse = (TextView) vu.findViewById(R.id.cell_txt_classes_name);
+            imgClasse = (ImageView) vu.findViewById(R.id.imageView_Image);
         }
     }
 
@@ -62,8 +67,13 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final Classe classeActuel = classes.get(position);
         final String name=classeActuel.getName();
+        final String photo=classeActuel.getMaleImg();
 
         holder.nomClasse.setText(name);
+
+        Picasso.with(context)
+                .load(photo)
+                .into(holder.imgClasse);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
