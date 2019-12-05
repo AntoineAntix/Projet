@@ -43,7 +43,8 @@
 
         <activity android:name=".Vu.Activities.ClassesDetailsActivity"></activity>
 
-        <activity android:name=".Vu.Activities.WeaponsDetailsActivity"></activity>
+        <activity android:name=".Vu.Activities.WeaponsDetailsActivity"
+                android:theme="@style/Theme.Design.NoActionBar"></activity>
 
 
 
