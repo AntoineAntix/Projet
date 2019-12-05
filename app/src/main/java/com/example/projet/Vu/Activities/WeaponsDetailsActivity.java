@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.example.projet.R;
 import com.squareup.picasso.Picasso;
@@ -14,6 +15,7 @@ public class WeaponsDetailsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_weapons);
+
 
         getIncommingIntent();
     }
@@ -48,6 +50,7 @@ public class WeaponsDetailsActivity extends AppCompatActivity {
         ImageView imageVw =  findViewById(R.id.image);
         Picasso.with(getApplicationContext())
                 .load(imageUrl)
+                .resize(400, 400)
                 .into(imageVw);
 
 
