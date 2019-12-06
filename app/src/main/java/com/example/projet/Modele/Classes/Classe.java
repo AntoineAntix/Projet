@@ -1,10 +1,12 @@
 package com.example.projet.Modele.Classes;
 
+import java.util.List;
+
 public class Classe {
     private String name;
     private String url;
     private String description;
-    private String[] roles;
+    private List<String> roles;
     private String maleImg;
     private String femaleImg;
 
@@ -44,10 +46,7 @@ public class Classe {
         this.femaleImg = femaleImg;
     }
 
-    public String[] getRoles() {
+    public List<String> getRoles() {
         return roles;
-    }
-    public void setRoles(String[] roles) {
-        this.roles = roles;
     }
 }

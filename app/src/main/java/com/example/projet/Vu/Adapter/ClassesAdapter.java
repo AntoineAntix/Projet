@@ -16,6 +16,7 @@ import com.example.projet.Modele.Classes.ClassesOnItemClick;
 import com.example.projet.R;
 import com.squareup.picasso.Picasso;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 

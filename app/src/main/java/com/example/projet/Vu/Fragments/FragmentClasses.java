@@ -21,6 +21,7 @@ import com.example.projet.Modele.Classes.ClassesOnItemClick;
 import com.example.projet.R;
 import com.example.projet.Vu.Adapter.ClassesAdapter;
 import com.example.projet.Vu.Activities.ClassesDetailsActivity;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -63,12 +64,8 @@ public class FragmentClasses extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(), classes.getName(), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), ClassesDetailsActivity.class);
-                intent.putExtra("nom", classes.getName());
-                intent.putExtra("description", classes.getDescription());
-                intent.putExtra("url", classes.getUrl());
-                intent.putExtra("imageMale", classes.getMaleImg());
-                intent.putExtra("imageFemale", classes.getFemaleImg());
-                intent.putExtra("roles", classes.getRoles());
+                Gson gson = new Gson();
+                intent.putExtra("keyclasses", gson.toJson(classes));
                 FragmentClasses.this.startActivity(intent);
             }
         }
