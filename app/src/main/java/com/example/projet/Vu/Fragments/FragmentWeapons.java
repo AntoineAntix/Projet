@@ -26,6 +26,7 @@ import com.example.projet.Modele.Weapons.WeaponsOnItemClick;
 import com.example.projet.R;
 import com.example.projet.Vu.Adapter.WeaponsAdapter;
 import com.example.projet.Vu.Activities.WeaponsDetailsActivity;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -69,11 +70,8 @@ public class FragmentWeapons extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(), arme.getName(), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), WeaponsDetailsActivity.class);
-                intent.putExtra("nom", arme.getName());
-                intent.putExtra("description", arme.getDescription());
-                intent.putExtra("lvl", arme.getLvl());
-                intent.putExtra("type", arme.getType());
-                intent.putExtra("image", arme.getImgUrl());
+                Gson gson = new Gson();
+                intent.putExtra("keyweapons", gson.toJson(arme));
                 FragmentWeapons.this.startActivity(intent);
             }
         }
