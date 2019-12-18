@@ -90,6 +90,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(tut);
                 break;
 
+            case R.id.nav_propos_classe:
+                Intent pro = new Intent(MainActivity.this,Apropos.class);
+                startActivity(pro);
+                break;
+
         }
 
         return true;
