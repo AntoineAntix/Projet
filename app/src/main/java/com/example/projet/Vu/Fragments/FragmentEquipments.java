@@ -26,6 +26,7 @@ import com.example.projet.Modele.Equipments.EquipmentsOnItemClick;
 import com.example.projet.R;
 import com.example.projet.Vu.Adapter.EquipmentsAdapter;
 import com.example.projet.Vu.Activities.EquipmentsDetailsActivity;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -69,11 +70,8 @@ public class FragmentEquipments extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(), equipments.getName(), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), EquipmentsDetailsActivity.class);
-                intent.putExtra("nom", equipments.getName());
-                intent.putExtra("description", equipments.getDescription());
-                intent.putExtra("level", equipments.getLvl());
-                intent.putExtra("type", equipments.getType());
-                intent.putExtra("image", equipments.getImgUrl());
+                Gson gson = new Gson();
+                intent.putExtra("keyequipment", gson.toJson(equipments));
                 FragmentEquipments.this.startActivity(intent);
             }
         }
