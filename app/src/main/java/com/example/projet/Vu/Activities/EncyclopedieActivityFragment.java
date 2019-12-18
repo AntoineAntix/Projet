@@ -1,6 +1,7 @@
 package com.example.projet.Vu.Activities;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -61,7 +62,29 @@ public class EncyclopedieActivityFragment extends AppCompatActivity implements N
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
+        if(MainActivity.m==3){
+            MainActivity.mediaPlayer.setLooping(true);
+            MainActivity.mediaPlayer.start();
+            MainActivity.m=1;
+        }
+    }
+    public void onPause()
+    {
+        super.onPause();
+        if(MainActivity.m!=0) {
+            MainActivity.mediaPlayer.pause();
+            MainActivity.m=2;
+        }
+    }
 
+    public void onResume()
+    {
+        super.onResume();
+        if (MainActivity.m==2){
+            MainActivity.mediaPlayer.setLooping(true);
+            MainActivity.mediaPlayer.start();
+            MainActivity.m=1;
+        }
     }
 
     @Override

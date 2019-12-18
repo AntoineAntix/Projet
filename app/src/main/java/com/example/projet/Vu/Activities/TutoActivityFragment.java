@@ -60,6 +60,11 @@ public class TutoActivityFragment extends AppCompatActivity implements Navigatio
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
+        if(MainActivity.m==1){
+            MainActivity.mediaPlayer.pause();
+            MainActivity.m=3;
+        }
+
 
     }
 

@@ -29,8 +29,8 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    private MediaPlayer mediaPlayer;
-    private static int m=0;
+    public static MediaPlayer mediaPlayer;
+    public static int m=0;
     private DrawerLayout drawerLayout;
 
     @Override
@@ -51,10 +51,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         musiquePlay();
     }
 
+    public void onPause()
+    {
+        super.onPause();
+        if(m!=0) {
+            mediaPlayer.pause();
+            m=2;
+        }
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+        if (m==2){
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+            m=1;
+        }
+    }
+
     public void musiquePlay (){
         if(m==0)
         {
             mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.dofusmusic);
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+            m=1;
+        }
+        if(m==3){
+            mediaPlayer.setLooping(true);
             mediaPlayer.start();
             m=1;
         }
