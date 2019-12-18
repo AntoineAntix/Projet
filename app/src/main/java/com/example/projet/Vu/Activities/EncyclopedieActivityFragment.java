@@ -111,6 +111,11 @@ public class EncyclopedieActivityFragment extends AppCompatActivity implements N
                 Intent tut = new Intent(EncyclopedieActivityFragment.this,TutoActivityFragment.class);
                 startActivity(tut);
                 break;
+            case R.id.nav_propos_classe:
+                Intent pro = new Intent(EncyclopedieActivityFragment.this,Apropos.class);
+                startActivity(pro);
+                break;
+
 
         }
 
