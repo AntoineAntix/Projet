@@ -1,7 +1,6 @@
 package com.example.projet.Vu.Activities;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -14,29 +13,39 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer l'activité À propos.
+ */
+
 public class Apropos extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.propos_activity);
+        setContentView(R.layout.propos_activity); //On définit le layout affilié
+
+        //Définition de la toolbar
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Création du drawer layout
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Gestion de l'ouverture et de la fermeture du drawer.
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
-        if(MainActivity.m==3){
+        if(MainActivity.m==3){ //Gestion de la musique si on passe de l'acitivté tutoriel à celui ci.
             MainActivity.mediaPlayer.setLooping(true);
             MainActivity.mediaPlayer.start();
             MainActivity.m=1;
         }
     }
-    public void onPause()
+    public void onPause() //Si l'application est fermé la musique est mise sur pause
     {
         super.onPause();
         if(MainActivity.m!=0) {
@@ -45,7 +54,7 @@ public class Apropos extends AppCompatActivity implements NavigationView.OnNavig
         }
     }
 
-    public void onResume()
+    public void onResume() //Quand on revient sur l'application la musique reprend
     {
         super.onResume();
         if (MainActivity.m==2){
@@ -55,10 +64,10 @@ public class Apropos extends AppCompatActivity implements NavigationView.OnNavig
         }
     }
 
+    //Gestion de la navigation drawer lorsque l'on clique sur un élément.
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         closeDrawer();
-
         switch (menuItem.getItemId()){
             case R.id.nav_accueil_classe:
                 Intent acc = new Intent(Apropos.this,MainActivity.class);
@@ -79,18 +88,15 @@ public class Apropos extends AppCompatActivity implements NavigationView.OnNavig
                 Intent pro = new Intent(Apropos.this,Apropos.class);
                 startActivity(pro);
                 break;
-
-
         }
-
         return true;
     }
 
-    private void closeDrawer() {
+    private void closeDrawer() { //Fermeture du drawer
         drawerLayout.closeDrawer(GravityCompat.START);
     }
 
-    private void openDrawer() {
+    private void openDrawer() { //Ouverture du drawer
         drawerLayout.openDrawer(GravityCompat.START);
     }
 

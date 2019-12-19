@@ -18,6 +18,11 @@ import com.example.projet.Vu.Adapter.RoleClasseAdapter;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer l'activité des détails de chaques classes.
+ */
+
 public class ClassesDetailsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewRole;
@@ -30,23 +35,23 @@ public class ClassesDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details_classes);
-        recyclerViewRole = findViewById(R.id.myRecyclerViewRole);
-        recyclerViewAttaque=findViewById(R.id.myRecyclerViewAttaque);
+        setContentView(R.layout.activity_details_classes); //On définit le layout affilié
+        recyclerViewRole = findViewById(R.id.myRecyclerViewRole); //On définit le recyclerView des roles
+        recyclerViewAttaque=findViewById(R.id.myRecyclerViewAttaque); //On définit le recyclerView des attaques
         getIncommingIntent();
     }
 
-    private void getIncommingIntent() {
+    private void getIncommingIntent() { //Permet de récupérer le json générer au moment du clique
         if (getIntent().hasExtra("keyclasses")) {
             String jsonClasse = getIntent().getStringExtra("keyclasses");
             Gson gson = new Gson();
-            Classe classe = gson.fromJson(jsonClasse, Classe.class);
+            Classe classe = gson.fromJson(jsonClasse, Classe.class); //On définit la classe qui récupère les données du json
 
             setTxt(classe);
         }
     }
 
-    private void setTxt(Classe classe){
+    private void setTxt(Classe classe){ //Fonction pour définir chaque balise à un getter de l'object affiché
         recyclerViewRole.setHasFixedSize(true);
         recyclerViewAttaque.setHasFixedSize(true);
 

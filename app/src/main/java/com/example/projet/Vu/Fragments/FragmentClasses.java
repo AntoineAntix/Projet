@@ -25,6 +25,11 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Ce fragment gère l'affichage des classes.
+ */
+
 public class FragmentClasses extends Fragment {
     public View v;
     private RecyclerView recyclerView;
@@ -39,9 +44,11 @@ public class FragmentClasses extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v=inflater.inflate(R.layout.classes_fragment, container, false);
-        recyclerView = v.findViewById(R.id.myRecyclerViewRole);
-        progressBar = v.findViewById(R.id.chargement_main_activity);
+        v=inflater.inflate(R.layout.classes_fragment, container, false); //Définition du layout
+        recyclerView = v.findViewById(R.id.myRecyclerViewRole); //Définition de la recyclerview
+        progressBar = v.findViewById(R.id.chargement_main_activity); //Définition du splash de la progressbar
+
+        //Appel du controller
         crt = new ClassesController(this, getActivity().getSharedPreferences("dataClasse", Context.MODE_PRIVATE));
         crt.onCreate();
         return v;
@@ -53,11 +60,16 @@ public class FragmentClasses extends Fragment {
     public void hideLoader(){
         progressBar.setVisibility(View.GONE);
     }
+
+    //Affichage de la liste des Classes
     public void showList(List<Classe> listClasses)
     {
+        //Initialisation du recycleview
         recyclerView.setHasFixedSize(true);
         layoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
+        //Appel de l'adapter
         classesAdapter = new ClassesAdapter(listClasses, getActivity().getApplicationContext(), new ClassesOnItemClick() {
             @Override
             public void onItemClick(Classe classes) {
@@ -65,8 +77,8 @@ public class FragmentClasses extends Fragment {
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), ClassesDetailsActivity.class);
                 Gson gson = new Gson();
-                intent.putExtra("keyclasses", gson.toJson(classes));
-                FragmentClasses.this.startActivity(intent);
+                intent.putExtra("keyclasses", gson.toJson(classes)); //Création du json au moment du clique avec les informations de l'item
+                FragmentClasses.this.startActivity(intent); //On lance l'activité details
             }
         }
         );

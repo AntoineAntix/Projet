@@ -1,31 +1,26 @@
 package com.example.projet.Vu.Activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.projet.R;
-import com.example.projet.Vu.Activities.EncyclopedieActivityFragment;
-import com.example.projet.Vu.Fragments.FragmentClasses;
-import com.example.projet.Vu.Fragments.FragmentEquipments;
-import com.example.projet.Vu.Fragments.FragmentWeapons;
 import com.google.android.material.navigation.NavigationView;
+
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer l'activité principale de l'application.
+ */
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -36,14 +31,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); //On définit le layout affilié
 
+        //Définition de la toolbar
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Création du drawer layout
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Gestion de l'ouverture et de la fermeture du drawer.
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         musiquePlay();
     }
 
-    public void onPause()
+    public void onPause() //Si l'application est fermé la musique est mise sur pause
     {
         super.onPause();
         if(m!=0) {
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public void onResume()
+    public void onResume() //Quand on revient sur l'application la musique reprend
     {
         super.onResume();
         if (m==2){
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public void musiquePlay (){
+    public void musiquePlay (){ //Initialisation de la musique
         if(m==0)
         {
             mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.dofusmusic);
@@ -85,21 +84,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public void showEcycolpedie(View view) {
+    public void showEcycolpedie(View view) { //Permet l'ouverture de l'encyclopédie
         Intent intent = new Intent(this, EncyclopedieActivityFragment.class);
         startActivity(intent);
     }
 
-    public void showTuto(View view) {
+    public void showTuto(View view) { //Permet l'ouverture de tutoriel
         Intent intent = new Intent(this, TutoActivityFragment.class);
         startActivity(intent);
     }
 
-    public void showAPropos(View view) {
+    public void showAPropos(View view) { //Permet l'ouverture du À propos
         Intent intent = new Intent(this, Apropos.class);
         startActivity(intent);
     }
 
+    //Gestion de la navigation drawer lorsque l'on clique sur un élément.
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         closeDrawer();
@@ -132,11 +132,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void closeDrawer() {
         drawerLayout.closeDrawer(GravityCompat.START);
-    }
+    } //Fermeture du drawer
 
     private void openDrawer() {
         drawerLayout.openDrawer(GravityCompat.START);
-    }
+    } //Ouverture du drawer
 
     @Override
     public void onBackPressed() {

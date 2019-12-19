@@ -16,27 +16,32 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer l'activité des détails de chaques equipments.
+ */
+
 public class EquipmentsDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details_equipments);
+        setContentView(R.layout.activity_details_equipments); //On définit le layout affilié
 
         getIncommingIntent();
     }
 
-    private void getIncommingIntent() {
+    private void getIncommingIntent() { //Permet de récupérer le json générer au moment du clique
         if (getIntent().hasExtra("keyequipment")) {
             String jsonEquipment = getIntent().getStringExtra("keyequipment");
             Gson gson = new Gson();
-            Equipments equipments = gson.fromJson(jsonEquipment, Equipments.class);
+            Equipments equipments = gson.fromJson(jsonEquipment, Equipments.class); //On définit la classe qui récupère les données du json
 
             setTxt(equipments);
         }
     }
 
-    private void setTxt(Equipments equipments) {
+    private void setTxt(Equipments equipments) { //Fonction pour définir chaque balise à un getter de l'object affiché
         TextView nomTv = findViewById(R.id.nom);
         nomTv.setText(equipments.getName());
 

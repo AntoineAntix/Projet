@@ -8,6 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Cet Adapter gère l'affichage des différents fragments du ViewPager.
+ */
+
+
 public class ViewPageAdapter extends FragmentPagerAdapter {
     private final List<Fragment> listFragment = new ArrayList<>();
     private final List<String> listTitles = new ArrayList<>();

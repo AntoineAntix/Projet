@@ -25,6 +25,11 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Ce fragment gère l'affichage des weapons.
+ */
+
 public class FragmentWeapons extends Fragment {
     public View v ;
     private RecyclerView recyclerView;
@@ -40,9 +45,11 @@ public class FragmentWeapons extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.weapons_fragment,container,false);
-        recyclerView = v.findViewById(R.id.myRecyclerViewRole);
-        progressBar = v.findViewById(R.id.chargement_main_activity);
+        v = inflater.inflate(R.layout.weapons_fragment,container,false); //Définition du layout
+        recyclerView = v.findViewById(R.id.myRecyclerViewRole); //Définition de la recyclerview
+        progressBar = v.findViewById(R.id.chargement_main_activity); //Définition du splash de la progressbar
+
+        //Appel du controller
         crt = new WeaponsController( this, getActivity().getSharedPreferences("dataWeapons", Context.MODE_PRIVATE));
         crt.onCreate();
         return v;
@@ -54,11 +61,16 @@ public class FragmentWeapons extends Fragment {
     public void hideLoader(){
         progressBar.setVisibility(View.GONE);
     }
+
+    //Affichage de la liste des armes
     public void showList(List<Weapons> listWeapons)
     {
+        //Initialisation du recycleview
         recyclerView.setHasFixedSize(true);
         layoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
+        //Appel de l'adapter
         weaponsAdapter = new WeaponsAdapter(listWeapons, getActivity().getApplicationContext(), new WeaponsOnItemClick() {
             @Override
             public void onItemClick(Weapons arme) {
@@ -66,8 +78,8 @@ public class FragmentWeapons extends Fragment {
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), WeaponsDetailsActivity.class);
                 Gson gson = new Gson();
-                intent.putExtra("keyweapons", gson.toJson(arme));
-                FragmentWeapons.this.startActivity(intent);
+                intent.putExtra("keyweapons", gson.toJson(arme)); //Création du json au moment du clique avec les informations de l'item
+                FragmentWeapons.this.startActivity(intent); //On lance l'activité details
             }
         }
         );

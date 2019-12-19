@@ -18,6 +18,11 @@ import com.example.projet.Modele.Equipments.Equipments;
 import com.example.projet.R;
 import com.squareup.picasso.Picasso;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Cet Adapter gère l'affichage du recyclerview des Equipments.
+ */
+
 public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.ViewHolder> implements Filterable
 {
     private final EquipmentsOnItemClick click;
@@ -25,7 +30,7 @@ public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.Vi
     private Context context;
     private List<Equipments> equipmentsListFull;
 
-
+    //Fonction qui permet l'appelle de la classe java
     public EquipmentsAdapter(List<Equipments> dataBase, Context context, EquipmentsOnItemClick click)
     {
         equipmentsList =dataBase;
@@ -34,8 +39,7 @@ public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.Vi
         equipmentsListFull =new ArrayList<>(equipmentsList);
     }
 
-
-
+    //On définit ce qu'il y a à afficher dans le recyclerview
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         public TextView nomTxt;
@@ -43,6 +47,7 @@ public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.Vi
         public View layout;
         public ImageView imageVw;
 
+        //On définit les balises correspondant à ce qu'on veut afficher
         public ViewHolder(View vu)
         {
             super(vu);
@@ -53,20 +58,7 @@ public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.Vi
         }
     }
 
-    public void ajouter(int position, Equipments arme)
-    {
-        equipmentsList.add(position,arme);
-        notifyItemInserted(position);
-    }
-
-    public void supprimer(int position)
-    {
-        equipmentsList.remove(position);
-        notifyItemRemoved(position);
-    }
-
-
-
+    //On définit le layout correspondant à l'affichage des items
     @Override
     public EquipmentsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
@@ -76,6 +68,7 @@ public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.Vi
        return vuH;
     }
 
+    //On récupère les données de l'objet
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position)
     {
@@ -104,6 +97,7 @@ public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.Vi
         return equipmentsList.size();
     }
 
+    //Fonction qui permet de gérer le filtrage de la recyclerview
     @Override
     public Filter getFilter() {
         return filter;
@@ -131,6 +125,7 @@ public class EquipmentsAdapter extends RecyclerView.Adapter<EquipmentsAdapter.Vi
             return results;
         }
 
+        //On affiche le résultat du filtre
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             equipmentsList.clear();

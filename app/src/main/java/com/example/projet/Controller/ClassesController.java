@@ -19,72 +19,71 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Ce controller gère l'appel API pour les classes.
+ * API Rest + retrofit + mémoire cache.
+ */
+
 public class ClassesController {
+
+    //Initialisation des variables
     private final FragmentClasses classesActivity;
     private SharedPreferences sharedPreferences;
-    private static ClassesController classesController = null;
-
     public List<Classe> listClasses;
-
     private static String keyClasses = "dataClasse";
 
-    public static ClassesController getInstance(FragmentClasses mainActivity, SharedPreferences sharedPreferences) {
-        if (classesController == null) {
-            classesController = new ClassesController(mainActivity, sharedPreferences);
-        }
-        return classesController;
-    }
-
+    //Appel du controller (pour en faire appel dans les autres classes). On définit toutes nos variables.
     public ClassesController(FragmentClasses classesActivity, SharedPreferences sharedPreferences) {
         this.classesActivity = classesActivity;
         this.sharedPreferences = sharedPreferences;
     }
 
     public void onCreate() {
+        //Si le cache n'est pas vide alors on récupère ce qu'il y a dedans.
         if (sharedPreferences.contains(keyClasses)) {
 
-            classesActivity.showLoader();
-            String listJ = sharedPreferences.getString(keyClasses, null);
-            Type listType = new TypeToken<List<Classe>>() {
-            }.getType();
-            List<Classe> listClasses = new Gson().fromJson(listJ, listType);
-            classesActivity.showList(listClasses);
-            classesActivity.hideLoader();
+            classesActivity.showLoader(); //splach de chargement
+            String listJ = sharedPreferences.getString(keyClasses, null); //On récupère le json du cache
+            Type listType = new TypeToken<List<Classe>>() {}.getType(); //On définit son type
+            List<Classe> listClasses = new Gson().fromJson(listJ, listType); //On sauve dans une liste
+            classesActivity.showList(listClasses); //On affiche la liste
+            classesActivity.hideLoader(); //Fin du splash
 
-
-        } else {
-            classesActivity.showLoader();
+        } else { //Si le cache est vide on fait un appel api et on récupère le json que l'on sauve dans le cache.
+            classesActivity.showLoader(); //splach de chargement
             Gson gson = new GsonBuilder()
                     .setLenient()
                     .create();
 
+            //Réalisation du retrofit
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("https://fr.dofus.dofapi.fr/")
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
 
+            //Appel API Rest
             ClassesRestApi classesRestApi = retrofit.create(ClassesRestApi.class);
-
             Call<List<Classe>> call = classesRestApi.getListClasses();
             call.enqueue(new Callback<List<Classe>>() {
                 @Override
                 public void onResponse(Call<List<Classe>> call, Response<List<Classe>> response) {
-                    listClasses = response.body();
+                    listClasses = response.body(); //On récupère l'api
 
-                    Gson gson = new Gson();
+                    Gson gson = new Gson(); //Transformation en json
                     String listJ = gson.toJson(listClasses);
 
-                    sharedPreferences
+                    sharedPreferences //On sauve dans le cache
                             .edit()
                             .putString(keyClasses, listJ)
                             .apply();
 
-                    classesActivity.showList(listClasses);
-                    classesActivity.hideLoader();
+                    classesActivity.showList(listClasses); //On affiche la liste
+                    classesActivity.hideLoader(); //Fin du splash
                 }
 
                 @Override
-                public void onFailure(Call<List<Classe>> call, Throwable t) {
+                public void onFailure(Call<List<Classe>> call, Throwable t) { //Si l'API Rest ne fonctionne pas
                     Log.d("Erreur", "API erreur");
                 }
             });

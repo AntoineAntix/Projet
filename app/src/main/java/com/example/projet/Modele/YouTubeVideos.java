@@ -1,5 +1,10 @@
 package com.example.projet.Modele;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Classe java de l'objet YoutubeVideo.
+ */
+
 public class YouTubeVideos {
     private String videoUrl;
     private String name;
