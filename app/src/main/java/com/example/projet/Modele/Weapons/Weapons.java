@@ -1,5 +1,10 @@
 package com.example.projet.Modele.Weapons;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Classe java de l'objet Weapons.
+ */
+
 public class Weapons {
     private String _id;
     private String name;

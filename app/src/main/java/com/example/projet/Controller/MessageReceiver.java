@@ -11,6 +11,11 @@ import com.example.projet.Vu.Activities.MainActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer les notifications reçu depuis le serveur et de les afficher.
+ */
+
 public class MessageReceiver extends FirebaseMessagingService {
     private static final int REQUEST_CODE = 1;
     private static final int NOTIFICATION_ID = 6578;

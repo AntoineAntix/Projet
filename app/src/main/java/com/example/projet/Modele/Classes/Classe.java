@@ -2,6 +2,11 @@ package com.example.projet.Modele.Classes;
 
 import java.util.List;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Classe java de l'objet Classe.
+ */
+
 public class Classe {
     private String name;
     private String url;

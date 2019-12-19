@@ -9,6 +9,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer le serveur google pour les notifications.
+ */
+
 public class InstanceIdService extends FirebaseInstanceIdService{
 
     public InstanceIdService() {

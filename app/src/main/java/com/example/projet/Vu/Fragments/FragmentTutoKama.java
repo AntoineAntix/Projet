@@ -16,6 +16,11 @@ import androidx.fragment.app.Fragment;
 import com.example.projet.Vu.Adapter.VideoAdapter;
 import com.example.projet.Modele.YouTubeVideos;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Ce fragment gère l'affichage des video youtube tutoriel kama.
+ */
+
 public class FragmentTutoKama extends Fragment {
     public View v;
     private RecyclerView recyclerView;
@@ -28,11 +33,14 @@ public class FragmentTutoKama extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.tuto_kamas_fragment, container, false);
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
+        v = inflater.inflate(R.layout.tuto_kamas_fragment, container, false); //Définition du layout
+        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView); //Définition de la recyclerview
+
+        //Initialisation du recycleview
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager( new LinearLayoutManager(getActivity().getApplicationContext()));
 
+        //Si on ouvre pour la première fois le fragment alors on ajoute les items des videos
         if(situation == 0) {
             youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/p3ENO5voEsc\" frameborder=\"0\" allowfullscreen></iframe>","Tuto Kama EP.1"));
             youtubeVideos.add(new YouTubeVideos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/Vzy0rzlOIow\" frameborder=\"0\" allowfullscreen></iframe>","Tuto Kama EP.2"));
@@ -42,6 +50,8 @@ public class FragmentTutoKama extends Fragment {
 
             situation=1;
         }
+
+        //Appel de l'adapter pour l'affichage
         VideoAdapter videoAdapter = new VideoAdapter(youtubeVideos);
 
         recyclerView.setAdapter(videoAdapter);

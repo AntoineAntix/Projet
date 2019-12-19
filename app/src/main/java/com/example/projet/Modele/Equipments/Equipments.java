@@ -1,5 +1,10 @@
 package com.example.projet.Modele.Equipments;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Classe java de l'objet Equipments.
+ */
+
 public class Equipments {
     private String _id;
     private String name;

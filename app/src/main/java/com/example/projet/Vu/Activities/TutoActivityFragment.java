@@ -25,6 +25,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 import com.example.projet.R;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer l'activité Tutoriel.
+ */
+
 public class TutoActivityFragment extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private TabLayout tablayout;
     private ViewPager viewPager;
@@ -35,32 +40,39 @@ public class TutoActivityFragment extends AppCompatActivity implements Navigatio
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_tuto_fragment);
+        setContentView(R.layout.activity_main_tuto_fragment); //On définit le layout affilié
 
+        //On initialise la Tablayout qui gère les fragments
         tablayout = (TabLayout) findViewById(R.id.tablayout_id);
         viewPager = (ViewPager) findViewById(R.id.viewpager_id);
         adapter = new ViewPageAdapter(getSupportFragmentManager());
 
+        //On change la couleur du tablayout lorsque le fragment affilié est ouvert
         tablayout.setTabTextColors(getResources().getColor(R.color.RowColor),getResources().getColor(R.color.colorAccent));
 
+        //On ajoute les fragments
         adapter.AddFragment(new FragmentTutoXP(), "XP");
         adapter.AddFragment(new FragmentTutoKama(), "Kamas");
 
+        //On définit l'adapter des fragments
         viewPager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewPager);
 
-
+        //Définition de la toolbar
         Toolbar toolbar =(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Création du drawer layout
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Gestion de l'ouverture et de la fermeture du drawer.
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
-        if(MainActivity.m==1){
+        if(MainActivity.m==1){ //Mise en pause de la musique
             MainActivity.mediaPlayer.pause();
             MainActivity.m=3;
         }
@@ -68,6 +80,7 @@ public class TutoActivityFragment extends AppCompatActivity implements Navigatio
 
     }
 
+    //Gestion de la navigation drawer lorsque l'on clique sur un élément.
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         closeDrawer();

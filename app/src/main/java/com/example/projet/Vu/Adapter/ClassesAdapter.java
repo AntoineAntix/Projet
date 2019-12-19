@@ -20,6 +20,11 @@ import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Cet Adapter gère l'affichage du recyclerview des classes.
+ */
+
 public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHolder> implements Filterable{
 
     private final ClassesOnItemClick click;
@@ -27,17 +32,21 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
     private Context context;
     private List<Classe> classesFull;
 
+    //Fonction qui permet l'appelle de la classe java
     public ClassesAdapter(List<Classe> dataBase, Context context, ClassesOnItemClick click) {
         classes=dataBase;
         this.click=click;
         this.context=context;
         classesFull=new ArrayList<>(classes);
     }
+
+    //On définit ce qu'il y a à afficher dans le recyclerview
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nomClasse;
         public ImageView imgClasse;
         public View layoutClasse;
 
+        //On définit les balises correspondant à ce qu'on veut afficher
         public ViewHolder(View vu) {
             super(vu);
             layoutClasse = (LinearLayout) itemView.findViewById(R.id.linearLayout);
@@ -46,16 +55,7 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
         }
     }
 
-    public void ajouter(int position, Classe classe) {
-        classes.add(position,classe);
-        notifyItemInserted(position);
-    }
-
-    public void supprimer(int position) {
-        classes.remove(position);
-        notifyItemRemoved(position);
-    }
-
+    //On définit le layout correspondant à l'affichage des items
     @Override
     public ClassesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -64,6 +64,7 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
         return vuH;
     }
 
+    //On récupère les données de l'objet
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final Classe classeActuel = classes.get(position);
@@ -90,6 +91,7 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
         return classes.size();
     }
 
+    //Fonction qui permet de gérer le filtrage de la recyclerview
     @Override
     public Filter getFilter() {
         return filter;
@@ -115,6 +117,8 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ViewHold
             results.values = ListFilter;
             return results;
         }
+
+        //On affiche le résultat du filtre
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             classes.clear();
