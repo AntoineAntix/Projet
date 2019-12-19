@@ -8,11 +8,12 @@ Application mobile réalisée dans le cadre d'un projet d'étude en 4ème année
 
 Ce projet comprend les features suivants : 
 
- -  activités : 
+ - 7 activités : 
 			 - **MainActivity** : Contient le menu principal.
 			 - **EncyclopedieActivityFragment** : Gère les fragments contenant les listes des classes, des 								equipements et des armes.
 			 - **3 DetailsActivity** : Contiennent les descitption des classes, équipements et armes. 
 			 - **TutoActivityFragment** : Gère les fragments contenant les tutoriel d'XP et de Kamas.
+			 - **Apropos** : Renseignements sur l'application.
  - Un **splash** avec une **ProgressBar** pour symboliser le **chargement de l'API**. 
  - Appel vers une **API Rest**. 
  - Différents **RecyclerView** pour afficher les différentes listes. 
