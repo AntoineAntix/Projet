@@ -4,12 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -18,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
 
 import com.example.projet.Controller.WeaponsController;
 import com.example.projet.Modele.Weapons.Weapons;
@@ -46,7 +41,7 @@ public class FragmentWeapons extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.weapons_fragment,container,false);
-        recyclerView = v.findViewById(R.id.myRecyclerView);
+        recyclerView = v.findViewById(R.id.myRecyclerViewRole);
         progressBar = v.findViewById(R.id.chargement_main_activity);
         crt = new WeaponsController( this, getActivity().getSharedPreferences("dataWeapons", Context.MODE_PRIVATE));
         crt.onCreate();

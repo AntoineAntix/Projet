@@ -7,6 +7,7 @@ public class Equipments {
     private String level;
     private String type;
     private String imgUrl;
+    public boolean fav;
 
     public String getName() {
         return name;
@@ -56,4 +57,8 @@ public class Equipments {
     public void set_id(String _id) {
         this._id = _id;
     }
+
+    public boolean getFav() { return fav; }
+
+    public void changeFav () {fav = !fav;}
 }

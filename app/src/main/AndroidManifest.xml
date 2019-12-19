@@ -49,7 +49,8 @@
         <activity android:name=".Vu.Activities.EquipmentsDetailsActivity"
             android:theme="@style/Theme.Design.NoActionBar"></activity>
 
-        <activity android:name=".Vu.Activities.ClassesDetailsActivity"></activity>
+        <activity android:name=".Vu.Activities.ClassesDetailsActivity"
+            android:theme="@style/Theme.Design.NoActionBar"></activity>
 
         <activity android:name=".Vu.Activities.WeaponsDetailsActivity"
                 android:theme="@style/Theme.Design.NoActionBar"></activity>
