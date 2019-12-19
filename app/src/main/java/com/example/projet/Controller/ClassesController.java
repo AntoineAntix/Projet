@@ -27,7 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ClassesController {
 
-    //Initialisation des variables.@
+    //Initialisation des variables.
     private final FragmentClasses classesActivity;
     private SharedPreferences sharedPreferences;
     public List<Classe> listClasses;
