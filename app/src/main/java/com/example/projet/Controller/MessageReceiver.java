@@ -1,15 +1,20 @@
-package com.example.projet.Controlleur;
+package com.example.projet.Controller;
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 
-import com.example.projet.Vu.MainActivity;
 import com.example.projet.R;
+import com.example.projet.Vu.Activities.MainActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer les notifications reçu depuis le serveur et de les afficher.
+ */
 
 public class MessageReceiver extends FirebaseMessagingService {
     private static final int REQUEST_CODE = 1;

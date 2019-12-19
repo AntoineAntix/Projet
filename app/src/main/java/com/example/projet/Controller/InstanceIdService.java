@@ -1,4 +1,4 @@
-package com.example.projet.Controlleur;
+package com.example.projet.Controller;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
@@ -8,6 +8,11 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Permet de gérer le serveur google pour les notifications.
+ */
 
 public class InstanceIdService extends FirebaseInstanceIdService{
 

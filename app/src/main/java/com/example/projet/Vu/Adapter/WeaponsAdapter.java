@@ -1,10 +1,10 @@
-package com.example.projet.Vu;
+package com.example.projet.Vu.Adapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,20 +13,25 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.projet.Modele.OnItemClick;
-import com.example.projet.Modele.Weapons;
+import com.example.projet.Modele.Weapons.WeaponsOnItemClick;
+import com.example.projet.Modele.Weapons.Weapons;
 import com.example.projet.R;
 import com.squareup.picasso.Picasso;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements Filterable
+/**
+ * Classe créée par LUCAS Antoine pour le 20/12/2019.
+ * Cet Adapter gère l'affichage du recyclerview des Weapons.
+ */
+
+public class WeaponsAdapter extends RecyclerView.Adapter<WeaponsAdapter.ViewHolder> implements Filterable
 {
-    private final OnItemClick click;
+    private final WeaponsOnItemClick click;
     private List<Weapons> weapon;
     private Context context;
     private List<Weapons> weaponFull;
 
-
-    public Adapter(List<Weapons> dataBase, Context context, OnItemClick click)
+    //Fonction qui permet l'appelle de la classe java
+    public WeaponsAdapter(List<Weapons> dataBase, Context context, WeaponsOnItemClick click)
     {
         weapon=dataBase;
         this.click=click;
@@ -34,8 +39,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
         weaponFull=new ArrayList<>(weapon);
     }
 
-
-
+    //On définit ce qu'il y a à afficher dans le recyclerview
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         public TextView nomTxt;
@@ -43,6 +47,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
         public View layout;
         public ImageView imageVw;
 
+        //On définit les balises correspondant à ce qu'on veut afficher
         public ViewHolder(View vu)
         {
             super(vu);
@@ -53,29 +58,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
         }
     }
 
-    public void ajouter(int position, Weapons arme)
-    {
-        weapon.add(position,arme);
-        notifyItemInserted(position);
-    }
 
-    public void supprimer(int position)
-    {
-        weapon.remove(position);
-        notifyItemRemoved(position);
-    }
-
-
-
+    //On définit le layout correspondant à l'affichage des items
     @Override
-    public Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public WeaponsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-       LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-       View vu=inflater.inflate(R.layout.row_layout,parent,false);
-       ViewHolder vuH = new ViewHolder(vu);
-       return vuH;
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View vu=inflater.inflate(R.layout.row_layout_weapons,parent,false);
+        ViewHolder vuH = new ViewHolder(vu);
+        return vuH;
     }
 
+    //On récupère les données de l'objet
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position)
     {
@@ -104,6 +98,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
         return weapon.size();
     }
 
+    //Fonction qui permet de gérer le filtrage de la recyclerview
     @Override
     public Filter getFilter() {
         return filter;
@@ -131,6 +126,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
             return results;
         }
 
+        //On affiche le résultat du filtre
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             weapon.clear();

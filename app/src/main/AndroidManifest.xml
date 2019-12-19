@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 
 
@@ -14,23 +15,55 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.MaterialComponents.Light.DarkActionBar">
-        <activity android:name=".Vu.MainActivity">
+        <activity android:name=".Vu.Activities.MainActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.SEARCH" />
-
             </intent-filter>
         </activity>
 
-        <activity android:name=".Vu.DetailsActivity"></activity>
+        <activity android:name=".Vu.Activities.EncyclopedieActivityFragment"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
 
-        <service android:name=".Controlleur.MessageReceiver">
+        <activity android:name=".Vu.Activities.TutoActivityFragment"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Vu.Activities.Apropos"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".Vu.Activities.EquipmentsDetailsActivity"
+            android:theme="@style/Theme.Design.NoActionBar"></activity>
+
+        <activity android:name=".Vu.Activities.ClassesDetailsActivity"
+            android:theme="@style/Theme.Design.NoActionBar"></activity>
+
+        <activity android:name=".Vu.Activities.WeaponsDetailsActivity"
+                android:theme="@style/Theme.Design.NoActionBar"></activity>
+
+
+
+
+        <service android:name=".Controller.MessageReceiver">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".Controlleur.InstanceIdService">
+        <service android:name=".Controller.InstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
