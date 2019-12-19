@@ -40,7 +40,7 @@ public class FragmentClasses extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v=inflater.inflate(R.layout.classes_fragment, container, false);
-        recyclerView = v.findViewById(R.id.myRecyclerView);
+        recyclerView = v.findViewById(R.id.myRecyclerViewRole);
         progressBar = v.findViewById(R.id.chargement_main_activity);
         crt = new ClassesController(this, getActivity().getSharedPreferences("dataClasse", Context.MODE_PRIVATE));
         crt.onCreate();

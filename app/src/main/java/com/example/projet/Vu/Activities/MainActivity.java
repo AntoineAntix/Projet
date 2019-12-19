@@ -95,6 +95,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
+    public void showAPropos(View view) {
+        Intent intent = new Intent(this, Apropos.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         closeDrawer();

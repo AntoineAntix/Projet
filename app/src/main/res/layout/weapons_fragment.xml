@@ -13,7 +13,7 @@
         layout="@layout/toolbar_layout"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myRecyclerView"
+        android:id="@+id/myRecyclerViewRole"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
@@ -33,7 +33,7 @@
         android:indeterminateDrawable="@drawable/my_progress_indeterminate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/myRecyclerView"
-        app:layout_constraintTop_toTopOf="@+id/myRecyclerView" />
+        app:layout_constraintStart_toStartOf="@+id/myRecyclerViewRole"
+        app:layout_constraintTop_toTopOf="@+id/myRecyclerViewRole" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

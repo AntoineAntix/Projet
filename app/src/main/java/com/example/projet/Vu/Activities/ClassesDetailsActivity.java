@@ -8,26 +8,31 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.projet.Modele.Classes.Classe;
 import com.example.projet.R;
-import com.example.projet.Vu.Adapter.ClassesAdapter;
+import com.example.projet.Vu.Adapter.AttaqueClasseAdapter;
 import com.example.projet.Vu.Adapter.RoleClasseAdapter;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 public class ClassesDetailsActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+    private RecyclerView recyclerViewRole;
     public static RoleClasseAdapter roleClasseAdapter;
+    private RecyclerView recyclerViewAttaque;
+    public static AttaqueClasseAdapter attaqueClasseAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_classes);
-        recyclerView = findViewById(R.id.myRecyclerView);
+        recyclerViewRole = findViewById(R.id.myRecyclerViewRole);
+        recyclerViewAttaque=findViewById(R.id.myRecyclerViewAttaque);
         getIncommingIntent();
     }
 
@@ -42,13 +47,20 @@ public class ClassesDetailsActivity extends AppCompatActivity {
     }
 
     private void setTxt(Classe classe){
-        recyclerView.setHasFixedSize(true);
+        recyclerViewRole.setHasFixedSize(true);
+        recyclerViewAttaque.setHasFixedSize(true);
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        layoutManager=new LinearLayoutManager(this);
+
+        recyclerViewRole.setLayoutManager(gridLayoutManager);
+        recyclerViewAttaque.setLayoutManager(layoutManager);
+
         roleClasseAdapter = new RoleClasseAdapter(classe.getRoles(),getApplicationContext());
+        attaqueClasseAdapter= new AttaqueClasseAdapter(classe.getSpells(),getApplicationContext());
 
-        recyclerView.setAdapter(roleClasseAdapter);
-
+        recyclerViewRole.setAdapter(roleClasseAdapter);
+        recyclerViewAttaque.setAdapter(attaqueClasseAdapter);
 
         TextView nomTv = findViewById(R.id.nom);
         nomTv.setText(classe.getName());
@@ -68,11 +80,5 @@ public class ClassesDetailsActivity extends AppCompatActivity {
         Picasso.with(getApplicationContext())
                 .load(classe.getFemaleImg())
                 .into(imageF);
-
-
-
-
-
-
     }
 }
