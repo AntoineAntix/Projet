@@ -22,6 +22,7 @@ Ce projet comprend les features suivants :
  - **Collapsing Toolbar** pour les détails des différents objets.
  - **ViewPager** pour l'affichage des fragements. 
  - **NavigationDrawer** pour passer d'une activité à une autre.
+ - **Video Player** affichage des vidéo youtube pour les tutoriels.
  - Fond d'écran et icône de l'application personnalisés.
  - **Barre de recherche** par nom des classes, des équipements et des armes.
  - **Musique** de fond - *"Dofus Astrub Theme Song"*.
