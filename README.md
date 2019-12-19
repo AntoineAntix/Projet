@@ -2,24 +2,29 @@
 
 ## 1- Présentation Générale 
 
-Application mobile réalisée dans le cadre d'un projet d'étude en 3ème année à l'ESIEA. Le but étant de nous familiariser avec *Android Studio*, d'apprendre à utiliser un *RecyclerView* et de *charger une API*. Ainsi, cette application a pour but de recenser toutes les armes du jeu *Dofus*. 
+Application mobile réalisée dans le cadre d'un projet d'étude en 4ème année à l'ESIEA. Le but étant d'appronfondir notre utilisation d'*Android Studio*, d'apprendre à utiliser un *RecyclerView*, de *charger une API*, et d'utiliser des fragments. Ainsi, cette application a pour but de réaliser une encyclopédie du jeu *Dofus*. 
 
 ## 2- Présentation Fonctionnelle
 
 Ce projet comprend les features suivants : 
 
- - 2 activités : 
-			 - **MainActivity** : Contient la liste des Armes.
-			 - **DetailsActivity** : Contient la description de l'arme sélectionnée. 
- - Une **ProgressBar** pour symboliser le **chargement de l'API**. 
+ -  activités : 
+			 - **MainActivity** : Contient le menu principal.
+			 - **EncyclopedieActivityFragment** : Gère les fragments contenant les listes des classes, des 								equipements et des armes.
+			 - **3 DetailsActivity** : Contiennent les descitption des classes, équipements et armes. 
+			 - **TutoActivityFragment** : Gère les fragments contenant les tutoriel d'XP et de Kamas.
+ - Un **splash** avec une **ProgressBar** pour symboliser le **chargement de l'API**. 
  - Appel vers une **API Rest**. 
- - Un **RecyclerView** pour afficher la liste des armes. 
+ - Différents **RecyclerView** pour afficher les différentes listes. 
  - **Stockage des données de l'API en cache** lors du premier chargement.
  - **Notification Push** via Firebase. 
+ - **Fragment** pour l'affichage des différentes listes et les vidéos tutoriels.
+ - **Collapsing Toolbar** pour les détails des différents objets.
+ - **ViewPager** pour l'affichage des fragements. 
+ - **NavigationDrawer** pour passer d'une activité à une autre.
  - Fond d'écran et icône de l'application personnalisés.
- - Barre de recherche par nom des armes.
- - Musique de fond - *"Dofus Astrub Theme Song"*.
- - Possibilité de défiler l'écran du Détails Activity.
+ - **Barre de recherche** par nom des armes.
+ - **Musique** de fond - *"Dofus Astrub Theme Song"*.
 
 Le projet comprend les architectures suivantes : 
 
