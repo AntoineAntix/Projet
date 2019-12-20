@@ -73,10 +73,30 @@ Le projet comprend les architectures suivantes :
 
 #### Barre de Recherche 
 
- > **Note:** Une barre de recherche qui permet de filtrer les armes par noms au fur et à mesure que l'utilisateur écrit. 
+ > **Note:** Une barre de recherche qui permet de filtrer les classes, les équipements, les armes par noms au fur et à mesure que l'utilisateur écrit. 
 <p align="center">
-<img src="https://image.noelshack.com/fichiers/2019/14/3/1554284418-56504204-324774531556742-5290224725878898688-n-min.png">
-<img src="https://image.noelshack.com/fichiers/2019/14/3/1554284418-56330951-1628391143930101-3691094937132072960-n-min.png">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/rechercheClasse.png" width="200" height="400">
+-> 
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/rechercheEquipement.png" width="200" height="400">
+-> 
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/rechercheArme.png" width="200" height="400">
+</p>
+
+#### Details Activity
+
+> **Note:** Écran avec les détails de l'item (classe/equipement/arme) sur lequel on clique. Ce sont des collapses avec l'image de l'item et en dessous les détails le concernant.
+<p align="center">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/classeDetailshaut.png" width="200" height="400">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/equipementDetails.png" width="200" height="400">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/armeDetails.png" width="200" height="400">
+</p>
+
+> **Note:** Pour les classes nous avons deux recyclerview pour l'affichage des rôles et des attaques.
+
+<p align="center">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/classeDetailshaut.png" width="200" height="400">
+->
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/classeDetailsmiddle.png" width="200" height="400">
 </p>
 
 #### Notification Push
@@ -84,5 +104,9 @@ Le projet comprend les architectures suivantes :
 > **Note:** Permet de notifier l'utilisateur.
 
 <p align="center">
-<img width="200" height="400" src="https://image.noelshack.com/fichiers/2019/14/3/1554300285-55908435-352030422102876-5397388128463880192-n.png">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/notification.png" width="200" height="400">
+</p>
+
+<p align="center">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/notification2.png" width="400" height="200">
 </p>
