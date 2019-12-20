@@ -38,14 +38,14 @@ Le projet comprend les architectures suivantes :
 ## 3- Screenshots 
 
 #### Icone de l'application
-> **Note:** Icone personnalisé pour l'application.
+> **Note:** *Icone* personnalisée pour l'application.
 
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/icone.png" width="200" height="200">
 </p>
 
 #### Navigation Drawer
-> **Note:** Permet de défiler d'une activity à une autre via un drawer.
+> **Note:** Permet de passer d'une activity à une autre via un *drawer*.
 
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/navigationDrawer.png" width="200" height="400">
@@ -53,7 +53,7 @@ Le projet comprend les architectures suivantes :
 
 #### Main Activity
 
-> **Note:** Le Main Activity est la page d'accueil de l'application. Il y a 3 boutons pour accéder aux autres activités.
+> **Note:** Le *Main Activity* est la page d'accueil de l'application. Il y a 3 boutons pour accéder aux autres activités.
 
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/homeActivity.png" width="200" height="400">
@@ -61,14 +61,14 @@ Le projet comprend les architectures suivantes :
 
 #### A propos Activity
 
-> **Note:** Le A Propos est la page qui renseignements sur l'application.
+> **Note:** Le *A Propos* est la page de renseignements sur l'application.
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/aPropos.png" width="200" height="400">
 </p>
 
 #### ProgressBar
 
-> **Note:** Barre de progression personnalisée (*Image Dofus*) qui permet de visualiser le chargement de l'API.
+> **Note:** *Barre de progression* personnalisée (*Image Dofus*) qui permet de visualiser le chargement de l'API.
 
 <p align="center">
 	<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/progressBar.png" width="200" height="400">
@@ -76,7 +76,7 @@ Le projet comprend les architectures suivantes :
 
 #### Ecyclopédie Activity
 
-> **Note:** 3 fragments qui permettent d'accéder aux listes pour les classes, les armes et les équipements.
+> **Note:** *3 fragments* qui permettent d'accéder aux listes pour les classes, les armes et les équipements.
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/encyclopedieActivity.png" width="200" height="400">
 -> 
@@ -87,7 +87,7 @@ Le projet comprend les architectures suivantes :
 
 #### Barre de Recherche 
 
- > **Note:** Une barre de recherche qui permet de filtrer les classes, les équipements, les armes par noms au fur et à mesure que l'utilisateur écrit. 
+ > **Note:** Une *barre de recherche* qui permet de filtrer les classes, les équipements, les armes par noms au fur et à mesure que l'utilisateur écrit. 
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/rechercheClasse.png" width="200" height="400">
 -> 
@@ -98,14 +98,14 @@ Le projet comprend les architectures suivantes :
 
 #### Details Activity
 
-> **Note:** Écran avec les détails de l'item (classe/equipement/arme) sur lequel on clique. Ce sont des collapses avec l'image de l'item et en dessous les détails le concernant.
+> **Note:** Écran avec les *détails* de l'item (classe/equipement/arme) sur lequel on clique. Ce sont des collapses avec l'image de l'item et en dessous les détails le concernant.
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/classeDetailshaut.png" width="200" height="400">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/equipementDetails.png" width="200" height="400">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/armeDetails.png" width="200" height="400">
 </p>
 
-> **Note:** Pour les classes nous avons deux recyclerview pour l'affichage des rôles et des attaques.
+> **Note:** Pour les classes nous avons deux *recyclerview* pour l'affichage des rôles et des attaques.
 
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/classeDetailshaut.png" width="200" height="400">
@@ -115,7 +115,7 @@ Le projet comprend les architectures suivantes :
 
 #### Ecyclopédie Activity
 
-> **Note:** 2 fragments qui permettent d'accéder aux vidéos YouTube de tutoriels pour l'XP et les Kamas.
+> **Note:** *2 fragments* qui permettent d'accéder aux vidéos YouTube des tutoriels pour l'XP et les Kamas.
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/tutorielActivity.png" width="200" height="400">
 -> 
@@ -124,7 +124,7 @@ Le projet comprend les architectures suivantes :
 
 #### Notification Push
 
-> **Note:** Permet de notifier l'utilisateur.
+> **Note:** Permet de *notifier* l'utilisateur.
 
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/notification.png" width="200" height="400">
