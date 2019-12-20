@@ -99,6 +99,15 @@ Le projet comprend les architectures suivantes :
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/classeDetailsmiddle.png" width="200" height="400">
 </p>
 
+#### Ecyclopédie Activity
+
+> **Note:** 2 fragments qui permettent d'accéder aux vidéos YouTube de tutoriels pour l'XP et les Kamas.
+<p align="center">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/tutorielActivity.png" width="200" height="400">
+-> 
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/fragmentKama.png" width="200" height="400">
+</p>
+
 #### Notification Push
 
 > **Note:** Permet de notifier l'utilisateur.
