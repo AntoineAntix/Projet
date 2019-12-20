@@ -44,6 +44,12 @@ Le projet comprend les architectures suivantes :
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/icone.png" width="200" height="200">
 </p>
 
+#### Navigation Drawer
+> **Note:** Permet de défiler d'une activity à une autre via un drawer.
+
+<p align="center">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/navigationDrawer.png" width="200" height="400">
+</p>
 
 #### Main Activity
 
