@@ -41,16 +41,34 @@ Le projet comprend les architectures suivantes :
 
 > **Note:** Barre de progression personnalisée (*Image Dofus*) qui permet de visualiser le chargement de l'API.
 
-![progressBar](https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/progressBar.png)
+<p align="center">
+	<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/progressBar.png" width="200" height="400" title="Screenshot ProgressBar">
+</p>
 
-#### Les Activités 
+#### Main Activity
 
-> **Note:** À droite, le MainActivité qui charge le RecyclerView, à gauche le DetailsActivity qui affiche les détails de l'arme sélectionnée. 
+> **Note:** Le Main Activity est la page d'accueil de l'application. Il y a 3 boutons pour accéder aux autres activités.
 
 <p align="center">
-<img src="https://image.noelshack.com/fichiers/2019/14/3/1554284418-56531102-402490370549958-1066424011476434944-n-min.png">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/homeActivity.png" width="200" height="400">
+</p>
+
+#### A propos Activity
+
+> **Note:** Le A Propos est la page qui renseignements sur l'application.
+<p align="center">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/aPropos.png" width="200" height="400">
+</p>
+
+#### Ecyclopédie Activity
+
+> **Note:** 3 fragments qui permettent d'accéder aux listes pour les classes, les armes et les équipements.
+<p align="center">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/encyclopedieActivity.png" width="200" height="400">
 -> 
-<img src="https://image.noelshack.com/fichiers/2019/14/3/1554284418-55759977-581031015640449-922973340740616192-n-min.png">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/fragmentEquipement.png" width="200" height="400">
+-> 
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/fragmentArme.png" width="200" height="400">
 </p>
 
 #### Barre de Recherche 
