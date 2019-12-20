@@ -37,13 +37,13 @@ Le projet comprend les architectures suivantes :
 
 ## 3- Screenshots 
 
-#### ProgressBar
-
-> **Note:** Barre de progression personnalisée (*Image Dofus*) qui permet de visualiser le chargement de l'API.
+#### Icone de l'application
+> **Note:** Icone personnalisé pour l'application.
 
 <p align="center">
-	<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/progressBar.png" width="200" height="400">
+<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/icone.png" width="200" height="200">
 </p>
+
 
 #### Main Activity
 
@@ -58,6 +58,14 @@ Le projet comprend les architectures suivantes :
 > **Note:** Le A Propos est la page qui renseignements sur l'application.
 <p align="center">
 <img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/aPropos.png" width="200" height="400">
+</p>
+
+#### ProgressBar
+
+> **Note:** Barre de progression personnalisée (*Image Dofus*) qui permet de visualiser le chargement de l'API.
+
+<p align="center">
+	<img src="https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/progressBar.png" width="200" height="400">
 </p>
 
 #### Ecyclopédie Activity
