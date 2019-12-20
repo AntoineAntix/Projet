@@ -41,7 +41,7 @@ Le projet comprend les architectures suivantes :
 
 > **Note:** Barre de progression personnalisée (*Image Dofus*) qui permet de visualiser le chargement de l'API.
 <p align="center">
-<img src="https://image.noelshack.com/fichiers/2019/14/3/1554284418-56328727-309032443106667-472793350018170880-n-min.png">
+![progressBar] (https://github.com/AntoineAntix/Projet/blob/master/ScreenReadMe/progressBar.png)
 </p>
 
 #### Les Activités 
